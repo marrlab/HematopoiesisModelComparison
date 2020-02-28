@@ -1,6 +1,6 @@
 function [opt] = setPaths()
 opt.c_path = cd;
-cd('../../../../');
+cd('../');
 path1=cd;
 addpath(genpath(fullfile(path1,'Tools')));
 addpath(genpath(fullfile(path1,'Tools','AMICI-master')));
