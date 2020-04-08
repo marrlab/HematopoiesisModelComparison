@@ -1,10 +1,11 @@
 function [opt,model_str,j_end,j_sim_end,nl_end] = getAppSettings_hierarchy(opt)
 
-opt.group = 'healthy';%'MDS';
+opt.group = 'healthy';%MDS
 opt.realdata = true;%false;%
 
 %% model states
-opt.models_implemented = {'model_A','model_B','model_C','model_D','model_E','model_F','model_G','model_H','model_I','model_J'};
+opt.models_implemented = {'model_B','model_C','model_D','model_E','model_F','model_G','model_H','model_I','model_J'};
+% opt.models_implemented = {'model_A','model_B','model_C','model_D','model_E','model_F','model_G','model_H','model_I','model_J'};
 opt.model = opt.models_implemented{1}; %updated later, only for initialization
 model_str = opt.models_implemented;
 j_sim_end = length(model_str); %index for model schemes
@@ -53,10 +54,11 @@ opt.exportResults4Python = true;%false;%if set to false, data will be plotted wi
 opt.fitInitialConds=true;%false;
 if opt.realdata == true
     opt.fileName = '2019_07_data.xlsx';
-    %[opt.individuals,~] = getIndividuals(opt.fileName,opt.group,opt.fit_repetitions_seperately);
+%     [opt.individuals,~] = getIndividuals(opt.fileName,opt.group,opt.fit_repetitions_seperately,false);
+%     opt.individuals = {'215_1','460_1','354_1','140_1'};
     opt.individuals = {'353_1','345_1','559_1','560_1','482_1','522_1'};
     opt.n_individuals = length(opt.individuals);
-    opt.n_intermediateStates = 1:5;
+    opt.n_intermediateStates = 4;%:5;
 %     opt.n_intermediateStates = 3; 
     opt.applyNoise = false;
     opt.noiseLevel='';
@@ -101,6 +103,7 @@ else
 end
 
 opt.structuralIdentifiability=false;
+opt.validation=false;
 
 %for plotting: specify colors for cell types
 opt.c_map =[204 0 0; %HSCs

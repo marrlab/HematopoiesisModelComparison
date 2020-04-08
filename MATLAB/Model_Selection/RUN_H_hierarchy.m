@@ -2,7 +2,7 @@ function [] = RUN_H_hierarchy
 
 %% info:
 % author: Lisa Bast
-% date: 13.01.19
+% date: 13.01.16
 %% description:
 % main function for performing MLE for ODE compartment models describing hematopoiesis or MDS,
 % based on experimentally measured cell abundances
@@ -36,7 +36,7 @@ if opt.realdata == true
    dataPreprocessing(possibleCompartments,opt.fitInitialConds);
 end
 
-for nl_id = 1:nl_end %for various noise levels
+for nl_id = 1:nl_end
     if iscell(opt.noiseLevel)
         [opt] = getNoiseSettings(opt,opt.noiseLevel{nl_id});
         opt.nL = opt.noiseLevel{nl_id};
@@ -82,6 +82,11 @@ for nl_id = 1:nl_end %for various noise levels
                     %update opt and simulation files for current model used for
                     %fit
                     [~,n_states,opt] = getModelParams(opt,opt.model);
+                end
+                if strcmp(opt.model,'model_A')
+                    firstIndividual=3;
+                else
+                    firstIndividual=1;
                 end
                 %initialize values
                 logL_List = zeros(1,opt.n_individuals);
