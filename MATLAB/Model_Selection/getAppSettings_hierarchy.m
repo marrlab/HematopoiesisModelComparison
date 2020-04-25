@@ -4,11 +4,10 @@ opt.group = 'healthy';%MDS
 opt.realdata = true;%false;%
 
 %% model states
-opt.models_implemented = {'model_B','model_C','model_D','model_E','model_F','model_G','model_H','model_I','model_J'};
-% opt.models_implemented = {'model_A','model_B','model_C','model_D','model_E','model_F','model_G','model_H','model_I','model_J'};
+opt.models_implemented = {'model_A','model_B','model_C','model_D','model_E','model_F','model_G','model_H','model_I','model_J'};
 opt.model = opt.models_implemented{1}; %updated later, only for initialization
 model_str = opt.models_implemented;
-j_sim_end = length(model_str); %index for model schemes
+
 
 opt.fitDeadCells = false;%true;
 % for fitting number of divisions:
@@ -53,16 +52,18 @@ opt.exportResults4Python = true;%false;%if set to false, data will be plotted wi
 
 opt.fitInitialConds=true;%false;
 if opt.realdata == true
+    j_sim_end = 1; %index for model schemes
     opt.fileName = '2019_07_data.xlsx';
 %     [opt.individuals,~] = getIndividuals(opt.fileName,opt.group,opt.fit_repetitions_seperately,false);
 %     opt.individuals = {'215_1','460_1','354_1','140_1'};
     opt.individuals = {'353_1','345_1','559_1','560_1','482_1','522_1'};
     opt.n_individuals = length(opt.individuals);
-    opt.n_intermediateStates = 4;%:5;
-%     opt.n_intermediateStates = 3; 
+    opt.n_intermediateStates = 1;
+%     opt.n_intermediateStates = 1:5; 
     opt.applyNoise = false;
     opt.noiseLevel='';
 else
+    j_sim_end = length(model_str); %index for model schemes
     opt.model_sim = opt.models_implemented{1}; %only initialization, updated later
     [opt] = getSimulationSettings(opt);
     opt.applyNoise = true;%false;

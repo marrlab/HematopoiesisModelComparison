@@ -83,11 +83,6 @@ for nl_id = 1:nl_end
                     %fit
                     [~,n_states,opt] = getModelParams(opt,opt.model);
                 end
-                if strcmp(opt.model,'model_A')
-                    firstIndividual=3;
-                else
-                    firstIndividual=1;
-                end
                 %initialize values
                 logL_List = zeros(1,opt.n_individuals);
                 for i_ID=firstIndividual:opt.n_individuals
@@ -97,6 +92,7 @@ for nl_id = 1:nl_end
                                       CI_lower CI_upper PAR_OPT_T PAR_TEST_T rate_names_test rate_names_opt transformation_str ... 
                                       possibleCompartments individuals_str str rate_names_test nl_id nl_end group_str
                     tic;
+                    t_c = cputime;
                     if (opt.applyNoise && iscell(opt.noiseLevel))
                         opt.subsubfoldername = ['individual_',opt.individuals{i_ID},'_',opt.nL,'_noise'];
                     else
@@ -128,12 +124,13 @@ for nl_id = 1:nl_end
                     end
 
                     % test gradient
-                    if opt.testGradient == true
-                        test_and_plot_Gradient(parameters,logL,opt,i_ID)
-                    end
+%                     if opt.testGradient == true
+%                         test_and_plot_Gradient(parameters,logL,opt,i_ID)
+%                     end
 
                     [parameters] = optimizationProc(options_par,parameters,logL,logL_final,opt,i_ID);
                     time_in_s = toc;
+                    time_cpu_in_s = cputime - t_c;
 
                     % get, transform and save parameters, bounds, Confidence intervals
                     individuals_str = opt.individuals;
