@@ -18,7 +18,7 @@ else
 end
 
 CD = cd();
-cd([opt.a_path,'\hematopoiesis']);
+cd(fullfile(opt.a_path,'hematopoiesis'));
 str = fileread(FileName1);
 T = textread(FileName1, '%s', 'delimiter', '\n','bufsize', max(size(str)));
 cd(CD);
@@ -30,7 +30,7 @@ else
     [T_new] = adaptModelFile_AMICI_multipleIS(T,opt,iS_ID,rates_str,n_prolif,n_diff,n_death);
 end
 
-cd([opt.a_path,'/hematopoiesis']);
+cd(fullfile(opt.a_path,'hematopoiesis'));
 FID = fopen(FileName1, 'wb');
 if FID < 0 
     error('Cannot open file.'); 

@@ -4,7 +4,7 @@ function [] = createSimulationFiles(opt,bool_simulate,model)
         %% adapt AMICI model file
         adaptModelFile_AMICI(model,opt,opt.iS_ID)
         %% run respective generating file 
-         cd(strcat(opt.a_path,'\hematopoiesis\'));
+        cd(fullfile(opt.a_path,'hematopoiesis'));
 %          disp(strcat(opt.a_path,'hematopoiesis/'));
 %          disp([model,'_',num2str(opt.n_intermediateStates(opt.iS_ID)),'()']);
          try

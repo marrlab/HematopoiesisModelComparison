@@ -6,8 +6,8 @@ function [options_par, parameters, opt] = getOptimizationSettings(opt,theta_test
 options_par = PestoOptions();
 
 % TolX: step size tolerance
-options_par.comp_type = 'sequential'; options_par.mode = 'visual'; opt.n_workers = 1;
-% options_par.comp_type = 'parallel'; options_par.mode = 'visual'; opt.n_workers = 2;
+% options_par.comp_type = 'sequential'; options_par.mode = 'visual'; opt.n_workers = 1;
+options_par.comp_type = 'parallel'; options_par.mode = 'visual'; opt.n_workers = 2;
 % options_par.comp_type = 'parallel'; options_par.mode = 'visual'; opt.n_workers = 10;
 
 % optimization settings
@@ -16,9 +16,9 @@ switch opt.RUN
         options_par.n_starts = 1000;
     case 'hierarchy_comparison_BIC'
         if opt.realdata == true
-            options_par.n_starts = 1;%1000;
+            options_par.n_starts = 1000;
         else
-            options_par.n_starts = 1;%1000;
+            options_par.n_starts = 1000;
         end
     case 'test_inference_procedure'
         options_par.n_starts = 1000;
