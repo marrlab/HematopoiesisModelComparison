@@ -45,9 +45,9 @@ To perform structural identifiability analysis go to <strong>./Structural_Identi
 <h3>real data model selection</h3>
 First go to folder <strong>./Model_Selection</strong> and specify the directories in <strong>setPaths()</strong>. To perform model selection  
 
-  1a) open <strong>getAppSettings_hierarchy.m</strong> and specify opt.realdata=false; to perform model selection on in silico data.
-    
-  1b) open <strong>getAppSettings_hierarchy.m</strong> and specify opt.realdata=true; to perform model selection on experimental data. 
+  1) open
+  a) <strong>getAppSettings_hierarchy.m</strong> and specify opt.realdata=false; to perform model selection on in silico data.
+  b) <strong>getAppSettings_hierarchy.m</strong> and specify opt.realdata=true; to perform model selection on experimental data. 
     
   2) run <strong>RUN_H_hierarchy()</strong> and specify in <strong>getAppSettings_hierarchy.m</strong> which models to compare and which data to use for the fit.
   
