@@ -29,23 +29,36 @@ Lisa Bast<sup>1,2,3,\*</sup>, Michèle C. Buck<sup>4,\*</sup>, Lynette Henkel<su
 
 download the required data and code from folder <strong>MATLAB</strong> 
 
-<h3>Model selection</h3>
-First go to folder <strong>./Model_Selection</strong> and specify the directories in <strong>setPaths()</strong>. To perform model selection  
-
-  1a) open <strong>getAppSettings_hierarchy.m</strong> and specify opt.realdata=false; to perform model selection on in silico data.
-    
-  1b) open <strong>getAppSettings_hierarchy.m</strong> and specify opt.realdata=true; to perform model selection on experimental data. 
-    
-  2) run <strong>RUN_H_hierarchy()</strong>.
-
 <h3>Structural identifiability analysis for multi-compartmental models</h3>
 To perform structural identifiability analysis go to <strong>./Structural_Identifiability_Analysis</strong>.
 
   1. specify the directories in <strong>setPaths()</strong>.
     
   2. run <strong>Create_Structural_Identifiability_Files.m</strong>.
+  
+<h3>In silico model selection</h3>
+
+ 1) specify opt.realdata = false; and set noise related settings in <strong>getAppSettings_hierarchy.m</strong> and run <strong>RUN_H_hierarchy()</strong>.
+ 
+ 2) for Results visualization run Hematopoiesis_Graphics_Results_hierarchyComparisonRun_in_silico.ipynb
+ 
+<h3>real data model selection</h3>
+First go to folder <strong>./Model_Selection</strong> and specify the directories in <strong>setPaths()</strong>. To perform model selection  
+
+  1a) open <strong>getAppSettings_hierarchy.m</strong> and specify opt.realdata=false; to perform model selection on in silico data.
     
-<h3>Results visualization</h2> 
-Go to ...
+  1b) open <strong>getAppSettings_hierarchy.m</strong> and specify opt.realdata=true; to perform model selection on experimental data. 
+    
+  2) run <strong>RUN_H_hierarchy()</strong> and specify in <strong>getAppSettings_hierarchy.m</strong> which models to compare and which data to use for the fit.
+  
+  3) run BuildScoresMatrix() for selection of models that should be compared.
+  
+  4) for Results visualization run jupyter notebook
+  a) Hematopoiesis_Graphics_Results_hierarchyComparisonRun.ipynb for a fixed number of intermediate states but varying hierarchies (model_A, model_B, etc.)
+  b) Hematopoiesis_Graphics_Results_hierarchyComparisonRun_IntermediateStates_redData.ipynb if different numbers of intermediate states should be compared
+ 
+
+
+    
     
 
