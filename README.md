@@ -46,7 +46,9 @@ To perform structural identifiability analysis go to <strong>./Structural_Identi
 First go to folder <strong>./Model_Selection</strong> and specify the directories in <strong>setPaths()</strong>. To perform model selection  
 
   1) open
+  
   a) <strong>getAppSettings_hierarchy.m</strong> and specify opt.realdata=false; to perform model selection on in silico data.
+  
   b) <strong>getAppSettings_hierarchy.m</strong> and specify opt.realdata=true; to perform model selection on experimental data. 
     
   2) run <strong>RUN_H_hierarchy()</strong> and specify in <strong>getAppSettings_hierarchy.m</strong> which models to compare and which data to use for the fit.
@@ -54,7 +56,9 @@ First go to folder <strong>./Model_Selection</strong> and specify the directorie
   3) run BuildScoresMatrix() for selection of models that should be compared.
   
   4) for Results visualization run jupyter notebook
+  
   a) Hematopoiesis_Graphics_Results_hierarchyComparisonRun.ipynb for a fixed number of intermediate states but varying hierarchies (model_A, model_B, etc.)
+  
   b) Hematopoiesis_Graphics_Results_hierarchyComparisonRun_IntermediateStates_redData.ipynb if different numbers of intermediate states should be compared
  
 
