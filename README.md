@@ -42,7 +42,7 @@ To perform structural identifiability analysis go to <strong>./Structural_Identi
  
  2) for Results visualization run Hematopoiesis_Graphics_Results_hierarchyComparisonRun_in_silico.ipynb
  
-<h3>real data model selection</h3>
+<h3>Real data model selection</h3>
 First go to folder <strong>./Model_Selection</strong> and specify the directories in <strong>setPaths()</strong>. To perform model selection  
 
   1) open
