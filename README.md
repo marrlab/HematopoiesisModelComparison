@@ -3,7 +3,7 @@
 
 contains code and data accompanying
 
-<strong>Computational Modeling of Stem and Progenitor Cell Kinetics Identifies Plausible Hematopoietic Lineage Hierarchies</strong> (in preparation)
+<strong>Computational Modeling of Stem and Progenitor Cell Kinetics Identifies Plausible Hematopoietic Lineage Hierarchies</strong>
 
 Lisa Bast<sup>1,2,3,\*</sup>, Michèle C. Buck<sup>4,\*</sup>, Judith S. Hecker<sup>4</sup>, Florian Bassermann<sup>4,6</sup>, Robert A.J. Oostendorp<sup>4</sup>, Katharina S. Götze<sup>4,6,+</sup> and Carsten Marr<sup>1,2,+</sup>
 
