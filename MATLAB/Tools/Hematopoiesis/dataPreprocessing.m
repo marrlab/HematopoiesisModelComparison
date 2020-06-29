@@ -1,4 +1,4 @@
-function [] = dataPreprocessing(possibleCompartments,bool_fitInitialConds)
+function [] = dataPreprocessing(possibleCompartments, bool_fitInitialConds, fileName)
 load('Data.mat','DataTable')
 
 % %% sort according to sample_name;
@@ -14,12 +14,12 @@ for i=1:size(DataTable.filename,1)
 end
 
 %% add columns for mature cells and dead cells
-DataTable.mature = DataTable.CD34negativ+DataTable.CD45nichtdim+DataTable.lin_p;
+DataTable.mature = DataTable.CD34negativ+DataTable.CD45nichtdim+DataTable.lin_pos;
 n_div_max_measured = sum(~cellfun('isempty', regexp(DataTable.Properties.VariableNames, 'CD34negativ', 'once')))-1;
 for i=1:n_div_max_measured
     selection_CD34negativ = ~cellfun('isempty', regexp(DataTable.Properties.VariableNames, ['g',num2str(i),'_CD34negativ'], 'once'));
     selection_CD45nichtdim = ~cellfun('isempty', regexp(DataTable.Properties.VariableNames, ['g',num2str(i),'_CD45nichtdim'], 'once'));
-    selection_lin_p = ~cellfun('isempty', regexp(DataTable.Properties.VariableNames, ['g',num2str(i),'_lin_p'], 'once'));
+    selection_lin_p = ~cellfun('isempty', regexp(DataTable.Properties.VariableNames, ['g',num2str(i),'_lin_pos'], 'once'));
     DataTable_CD34negativ = DataTable(:,DataTable.Properties.VariableNames(selection_CD34negativ));
     DataTable_CD45nichtdim = DataTable(:,DataTable.Properties.VariableNames(selection_CD45nichtdim));
     DataTable_lin_pos = DataTable(:,DataTable.Properties.VariableNames(selection_lin_p));
@@ -42,7 +42,7 @@ for i=1:length(possibleCompartments)-1
     end
     T_error.Properties.VariableNames{i+1}=[possibleCompartments{i},'total_minus_sumOf_gi_',possibleCompartments{i}];
 end
-%writetable(T_error,['AbweichungInDaten_',fileName]);
+writetable(T_error,['AbweichungInDaten_',fileName]);
     
 %% check if number of dead cells gets negative
 idx_ndcn = find(DataTable.p2<DataTable.viable);
@@ -61,7 +61,7 @@ DataTable.detectionLimit = 2.626785*ones(size(DataTable,1),1);
 DataTable.detectionLimit_corrected = DataTable.detectionLimit./DataTable.correctionFactor;
 
 %% correct cell numbers according to beads
-[DataTable] = correctCellNumberForBeadCounts(DataTable,[possibleCompartments,'lin_p','lin_n']);
+[DataTable] = correctCellNumberForBeadCounts(DataTable,[possibleCompartments,'lin_pos','lin_neg']);
 
 %% correct day: first day should be day 0 if initial conditions are not fit
 if ~bool_fitInitialConds %start at 0 if first data point is used as known initial condition

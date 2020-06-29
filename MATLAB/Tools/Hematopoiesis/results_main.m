@@ -8,18 +8,19 @@ close all;
 
 
 %% (1) Healthy vs MDS comparison:
-path_ext = 'Hematopoiesis_Healthy_MDS_Comparison/Parameter_Inference';
-f_name{1} = 'results_fit_samples_7divs_3iS_HO_LogNormal_fit_iC';
+% path_ext = 'Healthy_MDS_Comparison/Parameter_Inference';
+% f_name{1} = 'results_fit_samples_7divs_3iS_HO_LogNormal_fit_iC';
 
 %% (2) Topology comparison
-path_ext = 'Hematopoiesis_Lineage_Hierarchy_Comparison/Model_Selection';
+path_ext = 'Lineage_Hierarchy_Comparison_preAnalysis/Model_Selection';
 f_name{1} = 'results_hierarchy_comparison_BIC_7divs_3iS_HO_LogNormal_fit_iC';
 
 fileNameData = '2019_07_data.xlsx';
+cd('../../../')
 C_dir = cd();
-cd('../../')
-path = [C_dir,'/HematopoiesisModel/',path_ext];
+path = [C_dir,'/HematopoiesisAnalysis/AnalysisAndModeling/BulkAnalysis/',path_ext];
 
+cd(path)
 [opt_paths] = setPaths();
 bool_fit_repetitions_seperately=false;
 if bool_fit_repetitions_seperately==true
@@ -108,7 +109,8 @@ for h_id=1:length(hierarchy_FolderNames)
         
         for g_id = 1:length(group)
             [individuals,~] = getIndividuals(fileNameData,group{g_id},false,bool_fit_repetitions_seperately);     
-            opt.individuals = individuals;
+%             opt.individuals = individuals;
+            opt.individuals = {'353_1','559_1','482_1','522_1'};
             opt.n_individuals = length(individuals);
             i_start = 1;
             i_end = length(individuals);
