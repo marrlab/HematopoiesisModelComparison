@@ -36,11 +36,11 @@ To perform structural identifiability analysis go to <strong>./Structural_Identi
   
 ### In silico model selection 
 
-@TODO: in which folder?
+@note: in which folder?
 
  1) specify opt.realdata = false; and set noise related settings in <strong>getAppSettings_hierarchy.m</strong> and run <strong>RUN_H_hierarchy()</strong>.
  
- 2) for Results visualization run Hematopoiesis_Graphics_Results_hierarchyComparisonRun_in_silico.ipynb @TODO: which file? I could not find the file
+ 2) for Results visualization run Hematopoiesis_Graphics_Results_hierarchyComparisonRun_in_silico.ipynb @note: which file? I could not find the file
  
 ### Real data model selection
 
