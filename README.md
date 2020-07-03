@@ -19,7 +19,7 @@ Lisa Bast<sup>1,2,3,\*</sup>, Michèle C. Buck<sup>4,\*</sup>, Judith S. Hecker<
 </sup></sub>
 
 required software: 
-- MATLAB (R2017a), usage of Toolboxes: 
+- MATLAB (R2017a)
 - [PESTO](https://github.com/ICB-DCM/PESTO/) @note: can you please add the version
 - [AMICI](https://github.com/ICB-DCM/AMICI) @note: can you please add version 
 - [STRIKEGOLDD](https://github.com/afvillaverde/strike-goldd_2.1) @note: can you please add version
