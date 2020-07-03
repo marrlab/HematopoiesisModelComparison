@@ -18,42 +18,41 @@ Lisa Bast<sup>1,2,3,\*</sup>, Michèle C. Buck<sup>4,\*</sup>, Judith S. Hecker<
 <sup>+</sup> Joint corresponding authors  <br>
 </sup></sub>
 
- required software: 
+required software: 
 - MATLAB (R2017a), usage of Toolboxes: 
-  - [PESTO](https://github.com/ICB-DCM/PESTO/) @note: can you please add the version
-  - [AMICI](https://github.com/ICB-DCM/AMICI) @note: can you please add version 
-  - [STRIKEGOLDD](https://github.com/afvillaverde/strike-goldd_2.1) @note: can you please add version
+- [PESTO](https://github.com/ICB-DCM/PESTO/) @note: can you please add the version
+- [AMICI](https://github.com/ICB-DCM/AMICI) @note: can you please add version 
+- [STRIKEGOLDD](https://github.com/afvillaverde/strike-goldd_2.1) @note: can you please add version
  
-  which are already included in folder `tools` but need to get unzipped. Note that AMICI uses `.mex` files and requires `MinGW` as `C/C++` compiler. If you have not used `mex` with MATLAB before you might need to set it up first (by following these [instructions](https://de.mathworks.com/help/matlab/matlab_external/install-mingw-support-package.html).
+which are already included in folder `tools` but need to get unzipped. Note that AMICI uses `.mex` files and requires `MinGW` as `C/C++` compiler. If you have not used `mex` with MATLAB before you might need to set it up first (by following these [instructions](https://de.mathworks.com/help/matlab/matlab_external/install-mingw-support-package.html).
 
-
-download the required data and code from folder __MATLAB__ 
 
 ### Structural identifiability analysis for multi-compartmental models
+To perform structural identifiability analysis go to <strong>./Structural_Identifiability_Analysis</strong>.
 
-To perform structural identifiability analysis go to __./Structural_Identifiability_Analysis__.
-
-  1. specify the directories in __setPaths()__.
+  1. specify the directories in <strong>setPaths()</strong>.
     
-  2. run __Create_Structural_Identifiability_Files.m__.
+  2. run <strong>Create_Structural_Identifiability_Files.m</strong>.
   
-### In silico model selection
+### In silico model selection 
 
- 1) specify opt.realdata = false; and set noise related settings in __getAppSettings_hierarchy.m__ and run __RUN_H_hierarchy()__.
+@TODO: in which folder?
+
+ 1) specify opt.realdata = false; and set noise related settings in <strong>getAppSettings_hierarchy.m</strong> and run <strong>RUN_H_hierarchy()</strong>.
  
- 2) for Results visualization run Hematopoiesis_Graphics_Results_hierarchyComparisonRun_in_silico.ipynb
+ 2) for Results visualization run Hematopoiesis_Graphics_Results_hierarchyComparisonRun_in_silico.ipynb @TODO: which file? I could not find the file
  
 ### Real data model selection
 
-First go to folder __./Model_Selection__ and specify the directories in __setPaths()__. To perform model selection  
+First go to folder <strong>./Model_Selection</strong> and specify the directories in <strong>setPaths()</strong>. To perform model selection  
 
   1) open
   
-    a) __getAppSettings_hierarchy.m__ and specify opt.realdata=false; to perform model selection on in silico data.
+    a) <strong>getAppSettings_hierarchy.m</strong> and specify opt.realdata=false; to perform model selection on in silico data.
   
-    b) __getAppSettings_hierarchy.m__ and specify opt.realdata=true; to perform model selection on experimental data. 
+    b) <strong>getAppSettings_hierarchy.m</strong> and specify opt.realdata=true; to perform model selection on experimental data. 
     
-  2) run __RUN_H_hierarchy()__ and specify in __getAppSettings_hierarchy.m__ which models to compare and which data to use for the fit.
+  2) run <strong>RUN_H_hierarchy()</strong> and specify in <strong>getAppSettings_hierarchy.m</strong> which models to compare and which data to use for the fit.
   
   3) run BuildScoresMatrix() for selection of models that should be compared.
   
