@@ -3,9 +3,9 @@
 
 contains code and data accompanying
 
-____Computational Modeling of Stem and Progenitor Cell Kinetics Identifies Plausible Hematopoietic Lineage Hierarchies____
+____Computational modeling of stem and progenitor cell kinetics to identify plausible hematopoietic lineage hierarchies____
 
-Lisa Bast<sup>1,2,3,\*</sup>, Michèle C. Buck<sup>4,\*</sup>, Judith S. Hecker<sup>4</sup>, Florian Bassermann<sup>4,6</sup>, Robert A.J. Oostendorp<sup>4</sup>, Katharina S. Götze<sup>4,6,+</sup> and Carsten Marr<sup>1,2,+</sup>
+Lisa Bast<sup>1,2,3,\*</sup>, Michèle C. Buck<sup>4,\*</sup>, Judith S. Hecker<sup>4</sup>, Robert A.J. Oostendorp<sup>4</sup>, Katharina S. Götze<sup>4,6,+</sup> and Carsten Marr<sup>1,2,+</sup>
 
 <sub><sup>
 <sup>1</sup>Institute of Computational Biology, Helmholtz Zentrum München–German Research Center for Environmental Health, Neuherberg, Germany. <br>
@@ -20,9 +20,9 @@ Lisa Bast<sup>1,2,3,\*</sup>, Michèle C. Buck<sup>4,\*</sup>, Judith S. Hecker<
 
 required software: 
 - MATLAB (R2017a)
-- [PESTO](https://github.com/ICB-DCM/PESTO/) @note: can you please add the version
-- [AMICI](https://github.com/ICB-DCM/AMICI) @note: can you please add version 
-- [STRIKEGOLDD](https://github.com/afvillaverde/strike-goldd_2.1) @note: can you please add version
+- [PESTO] 1.1.0 (https://github.com/ICB-DCM/PESTO/) 
+- [AMICI] 0.10.7 (https://github.com/ICB-DCM/AMICI) 
+- [STRIKEGOLDD] 2.1 (https://github.com/afvillaverde/strike-goldd_2.1) 
  
 which are already included in folder `tools` but need to get unzipped. Note that AMICI uses `.mex` files and requires `MinGW` as `C/C++` compiler. If you have not used `mex` with MATLAB before you might need to set it up first (by following these [instructions](https://de.mathworks.com/help/matlab/matlab_external/install-mingw-support-package.html).
 
@@ -35,8 +35,6 @@ To perform structural identifiability analysis go to <strong>./Structural_Identi
   2. run <strong>Create_Structural_Identifiability_Files.m</strong>.
   
 ### In silico model selection 
-
-@note: in which folder?
 
  1) specify opt.realdata = false; and set noise related settings in <strong>getAppSettings_hierarchy.m</strong> and run <strong>RUN_H_hierarchy()</strong>.
  
