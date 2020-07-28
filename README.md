@@ -59,8 +59,7 @@ To perform structural identifiability analysis go to <strong>.MATLAB/structural_
  
  2) For Results visualization go to folder <strong>./Python</strong> and run jupyter notebook <strong>results_visualization_in_silico_analysis.ipynb</strong>
  
-
-
+In general, to change settings regarding optimization such as number of multistarts or number of workers (to run code in parallel) go to folder <strong>./MATLAB/utils</strong> and make changes in <strong>getOptimizationSettings.m</strong>
 
     
     

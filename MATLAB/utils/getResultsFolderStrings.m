@@ -15,22 +15,11 @@ if opt.realdata==false && strcmp(opt.RUN,'hierarchy_comparison_BIC')
 else
     test_str = '';
 end
-opt.foldername = [strcat('results_',opt.RUN),test_str,'_',num2str(opt.n_divStates),'divs_',num2str(opt.n_intermediateStates(opt.iS_ID)),'iS',HO_str,'_',opt.noiseType];
+opt.foldername = [strcat('results'),test_str,'_',num2str(opt.n_divStates),'divs_',num2str(opt.n_intermediateStates(opt.iS_ID)),'iS',HO_str,'_',opt.noiseType];
 
-if opt.applyNoise
-    if iscell(opt.noiseLevel)
-        noiseLevel = strjoin(opt.noiseLevel,'_');
-    else
-        noiseLevel = opt.noiseLevel;
-    end
-else
-    noiseLevel = '';
-end
 if ~opt.realdata 
     if strcmp(opt.RUN,'hierarchy_comparison_BIC')
-        opt.foldername = [opt.foldername,'_simulatedFrom_',opt.model_sim,'_',noiseLevel];
-    else
-        opt.foldername = [opt.foldername,'_',noiseLevel];
+        opt.foldername = [opt.foldername,'_simulatedFrom_',opt.model_sim];
     end
 end
 if opt.fitInitialConds && ~strwcmp(opt.foldername,'*_fit_iC*')

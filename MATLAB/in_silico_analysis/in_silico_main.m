@@ -26,16 +26,14 @@ firstIndividual=1; %specify first individual
 [opt,model_str,j_end,j_sim_end,nl_end] = getInSilicoSettings();
              
 for j_sim = 1:j_sim_end %model scheme used for simulations index
-
     %% generate in silico data for every specified noise level and individual
     opt = simulateData(j_sim,model_str,opt);
     for nl_id = 1:nl_end
         for j=1:j_end %index of model hierarchy used for fit
-        
-            % update options:
+            %% update options:
             [opt,n_states] = updateInSilicoSettings(model_str,j,nl_id,opt);
             
-            %initialize values:
+            %% initialize values:
             [par_min,par_max,CI_lower,CI_upper,PAR_OPT_T,PAR_TEST_T,logL_vec] = initializeParameterResultMatrices(opt);
             
             for i_ID=firstIndividual:opt.n_individuals %index for individual for which parameter inference is performed
@@ -48,15 +46,15 @@ for j_sim = 1:j_sim_end %model scheme used for simulations index
                 %% load simulated data for current settings:
                 [data,theta_test,rate_names_test] = getSimulatedData(opt,i_ID);
                 
-                % track the time it takes to run optimization for 1
-                % sample:
+                % track the time it takes to run optimization for 1 sample:
                 tic;
                 t_c = cputime;
 
                 if any(any(isnan(data.NumCellDiv_ALL{1,1})))
                    continue; 
                 end
-
+                   
+                %% update options for parameters
                 opt = updateParameterOptions(data,opt);
 
                 %% generate simulation file for model used in optimization
