@@ -30,13 +30,11 @@ MATLAB toolboxes:
 which are already included in folder <strong>./MATLAB/toolboxes</strong>. Note that AMICI uses `.mex` files and requires `MinGW` as `C/C++` compiler. If you have not used `mex` with MATLAB before you might need to set it up first (by following these [instructions](https://de.mathworks.com/help/matlab/matlab_external/install-mingw-support-package.html).
 
 Python tools:
-- pandas 
-- numpy 
-- seaborn
-- matplotlib
-- scipy
-- os
-- fnmatch
+- pandas 1.0.1
+- numpy 1.18.1
+- seaborn 0.10.0
+- matplotlib 3.1.3
+- scipy 1.4.1
 
 ### Model comparison analysis
 #### Intermediate states Analysis
