@@ -200,11 +200,15 @@ function [P_test,rates_test_str] = loadTestPar(opt,option,model)
     %% (2) update values if results are available --> mean over all available vlues
     %for the specified model setting (path)
     if ~isempty(path) && ~(exist(path, 'dir')==0) && strcmp(option,'calculateFromRealDataFit')
-        cd(path)
+        cd(path);
+        cd('../../');
     %     disp(path)
         %d=dir([path,'/',model,'_model']);
-        load('WS_linear_parameters.mat')
-        last_individual = opt.individuals{length(opt.individuals)};
+%         load('WS_linear_parameters.mat')
+        fileName = '2019_07_data.xlsx';
+        [individual_IDs,~] = sort(getIndividuals(fileName,true));
+        last_individual = individual_IDs{length(individual_IDs)};
+        cd(path);
         cd(['./individual_',last_individual]);
         if opt.fit_repetitions_seperately==true
             load('ws_parameters_rep_sep.mat')
@@ -212,7 +216,7 @@ function [P_test,rates_test_str] = loadTestPar(opt,option,model)
             load('ws_parameters.mat')
         end
         transformation_str = {'lin','log10','ratio'};
-        rates_data_str = opt.rates(~strwcmp(opt.rates,'x0_*'));
+        rates_data_str = rate_names_opt(~strwcmp(rate_names_opt,'x0_*'));
         for rd_id = 1:length(rates_data_str)
             for rt_id = 1:length(rates_test_str)
     %             bool_identifiable = reshape((CI_lower(strcmp(transformation_str,'lin'),rd_id,:) > par_min(strcmp(transformation_str,'lin'),rd_id,:) & CI_upper(strcmp(transformation_str,'lin'),rd_id,:) < par_max(strcmp(transformation_str,'lin'),rd_id,:)),1,size(CI_lower,3));

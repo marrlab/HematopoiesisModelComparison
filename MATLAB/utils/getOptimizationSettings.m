@@ -5,10 +5,10 @@ function [options_par, parameters, opt] = getOptimizationSettings(opt,theta_test
 options_par = PestoOptions();
 
 % TolX: step size tolerance
-options_par.comp_type = 'sequential'; options_par.mode = 'visual'; opt.n_workers = 1;
+% options_par.comp_type = 'sequential'; options_par.mode = 'visual'; opt.n_workers = 1;
 % options_par.comp_type = 'parallel'; options_par.mode = 'visual'; opt.n_workers = 2;
 % options_par.comp_type = 'parallel'; options_par.mode = 'visual'; opt.n_workers = 10;
-% options_par.comp_type = 'parallel'; options_par.mode = 'visual'; opt.n_workers = 24;
+options_par.comp_type = 'parallel'; options_par.mode = 'visual'; opt.n_workers = 24;
 
 % optimization settings
 options_par.n_starts = 1000;

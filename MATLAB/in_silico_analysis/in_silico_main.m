@@ -96,6 +96,7 @@ saveModelSelectionResult(opt,AIC_all_mat,AIC_corrected_all_mat,BIC_all_mat,LOGL_
 
     function [opt,n_states] = updateInSilicoSettings(model_str,j,nl_id,opt)
         opt.model = model_str{j};
+        opt.subfoldername = model_str{j};
         %update opt and simulation files for current model used for fit
         [~,n_states,opt] = getModelParams(opt,opt.model);
         [opt] = getNoiseSettings(opt,opt.noiseLevel{nl_id});
