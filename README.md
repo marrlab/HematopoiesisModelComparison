@@ -36,26 +36,26 @@ Python tools:
 - matplotlib 3.1.3
 - scipy 1.4.1
 
-### Model comparison analysis
-#### Intermediate states Analysis
+### 1 Model comparison analysis
+#### 1.1 Intermediate states Analysis
 
- 1) Go to folder <strong>./MATLAB/model_comparison_analysis</strong> and run <strong>intermediate_states_main()</strong>. Settings can be adapted in <strong>getIntermediateStatesSettings.m</strong>.
+ a) Go to folder <strong>./MATLAB/model_comparison_analysis</strong> and run <strong>intermediate_states_main()</strong>. Settings can be adapted in <strong>getIntermediateStatesSettings.m</strong>.
  
- 2) For Results visualization run jupyter notebook results_visualization_intermediate_states.ipynb.
+ b) For Results visualization run jupyter notebook results_visualization_intermediate_states.ipynb.
     
-#### Lineage Hierarchy comparison
+#### 2 Lineage Hierarchy comparison
 
- 1) Go to folder <strong>./MATLAB/model_comparison_analysis</strong> and run <strong>lineage_hierarchies_main()</strong>. Settings can be adapted in <strong>getLineageHierarchySettings.m</strong>.
+ a) Go to folder <strong>./MATLAB/model_comparison_analysis</strong> and run <strong>lineage_hierarchies_main()</strong>. Settings can be adapted in <strong>getLineageHierarchySettings.m</strong>.
  
- 2) For Results visualization run jupyter notebook results_visualization_lineage_hierarchies.ipynb.
+ b) For Results visualization run jupyter notebook results_visualization_lineage_hierarchies.ipynb.
 
-### Structural identifiability analysis for multi-compartmental models
+### 3 Structural identifiability analysis for multi-compartmental models
 To perform structural identifiability analysis go to <strong>.MATLAB/structural_identifiability_analysis</strong> and run <strong>structural_identifiability_main()</strong>. Settings and paths can be updated iun <strong>getSISettings.m</strong> if necessary. 
   
-### In silico analysis
- 1) To perform in silico model selection go to folder <strong>./MATLAB/in_silico_analysis</strong>, specify settings in <strong>getInSilicoSettings.m</strong> and run <strong>in_silico_main()</strong>.
+### 4 In silico analysis
+ a) To perform in silico model selection go to folder <strong>./MATLAB/in_silico_analysis</strong>, specify settings in <strong>getInSilicoSettings.m</strong> and run <strong>in_silico_main()</strong>.
  
- 2) For Results visualization go to folder <strong>./Python</strong> and run jupyter notebook <strong>results_visualization_in_silico_analysis.ipynb</strong>
+ b) For Results visualization go to folder <strong>./Python</strong> and run jupyter notebook <strong>results_visualization_in_silico_analysis.ipynb</strong>
  
 In general, to change settings regarding optimization such as number of multistarts or number of workers (to run code in parallel) go to folder <strong>./MATLAB/utils</strong> and make changes in <strong>getOptimizationSettings.m</strong>
 
