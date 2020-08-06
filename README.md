@@ -3,9 +3,9 @@
 
 contains code and data accompanying
 
-<strong>Computational Modeling of Stem and Progenitor Cell Kinetics Identifies Plausible Hematopoietic Lineage Hierarchies</strong>
+____Computational modeling of stem and progenitor cell kinetics to identify plausible hematopoietic lineage hierarchies____
 
-Lisa Bast<sup>1,2,3,\*</sup>, Michèle C. Buck<sup>4,\*</sup>, Judith S. Hecker<sup>4</sup>, Florian Bassermann<sup>4,6</sup>, Robert A.J. Oostendorp<sup>4</sup>, Katharina S. Götze<sup>4,6,+</sup> and Carsten Marr<sup>1,2,+</sup>
+Lisa Bast<sup>1,2,3,\*</sup>, Michèle C. Buck<sup>4,\*</sup>, Judith S. Hecker<sup>4</sup>, Robert A.J. Oostendorp<sup>4</sup>, Katharina S. Götze<sup>4,6,+</sup> and Carsten Marr<sup>1,2,+</sup>
 
 <sub><sup>
 <sup>1</sup>Institute of Computational Biology, Helmholtz Zentrum München–German Research Center for Environmental Health, Neuherberg, Germany. <br>
@@ -18,50 +18,46 @@ Lisa Bast<sup>1,2,3,\*</sup>, Michèle C. Buck<sup>4,\*</sup>, Judith S. Hecker<
 <sup>+</sup> Joint corresponding authors  <br>
 </sup></sub>
 
- required software: 
-- MATLAB (R2017a), usage of Toolboxes:
-  - PESTO (https://github.com/ICB-DCM/PESTO/)
-  - AMICI (https://github.com/ICB-DCM/AMICI) 
-  - STRIKEGOLDD (https://github.com/afvillaverde/strike-goldd_2.1)
+required software: 
+- MATLAB R2017a
+- Python 3.7.6
+
+MATLAB toolboxes:
+- [PESTO] 1.1.0 (https://github.com/ICB-DCM/PESTO/) 
+- [AMICI] 0.10.7 (https://github.com/ICB-DCM/AMICI) 
+- [STRIKEGOLDD] 2.1 (https://github.com/afvillaverde/strike-goldd_2.1) 
  
-  which are already included in folder 'tools' but need to get unzipped. Note that AMICI uses '.mex' files and requires MinGW as C/C++ compiler.   If you have not used mex with MATLAB before you might need to set it up first (by following these instructions: https://de.mathworks.com/help/matlab/matlab_external/install-mingw-support-package.html).
+which are already included in folder <strong>./MATLAB/toolboxes</strong>. Note that AMICI uses `.mex` files and requires `MinGW` as `C/C++` compiler. If you have not used `mex` with MATLAB before you might need to set it up first (by following these [instructions](https://de.mathworks.com/help/matlab/matlab_external/install-mingw-support-package.html).
 
+Python tools:
+- pandas 1.0.1
+- numpy 1.18.1
+- seaborn 0.10.0
+- matplotlib 3.1.3
+- scipy 1.4.1
 
-download the required data and code from folder <strong>MATLAB</strong> 
+### Model comparison analysis
+#### Intermediate states Analysis
 
-<h3>Structural identifiability analysis for multi-compartmental models</h3>
-To perform structural identifiability analysis go to <strong>./Structural_Identifiability_Analysis</strong>.
-
-  1. specify the directories in <strong>setPaths()</strong>.
+ 1) Go to folder <strong>./MATLAB/model_comparison_analysis</strong> and run <strong>intermediate_states_main()</strong>. Settings can be adapted in <strong>getIntermediateStatesSettings.m</strong>.
+ 
+ 2) For Results visualization run jupyter notebook results_visualization_intermediate_states.ipynb.
     
-  2. run <strong>Create_Structural_Identifiability_Files.m</strong>.
-  
-<h3>In silico model selection</h3>
+#### Lineage Hierarchy comparison
 
- 1) specify opt.realdata = false; and set noise related settings in <strong>getAppSettings_hierarchy.m</strong> and run <strong>RUN_H_hierarchy()</strong>.
+ 1) Go to folder <strong>./MATLAB/model_comparison_analysis</strong> and run <strong>lineage_hierarchies_main()</strong>. Settings can be adapted in <strong>getLineageHierarchySettings.m</strong>.
  
- 2) for Results visualization run Hematopoiesis_Graphics_Results_hierarchyComparisonRun_in_silico.ipynb
- 
-<h3>Real data model selection</h3>
-First go to folder <strong>./Model_Selection</strong> and specify the directories in <strong>setPaths()</strong>. To perform model selection  
+ 2) For Results visualization run jupyter notebook results_visualization_lineage_hierarchies.ipynb.
 
-  1) open
+### Structural identifiability analysis for multi-compartmental models
+To perform structural identifiability analysis go to <strong>.MATLAB/structural_identifiability_analysis</strong> and run <strong>structural_identifiability_main()</strong>. Settings and paths can be updated iun <strong>getSISettings.m</strong> if necessary. 
   
-    a) <strong>getAppSettings_hierarchy.m</strong> and specify opt.realdata=false; to perform model selection on in silico data.
-  
-    b) <strong>getAppSettings_hierarchy.m</strong> and specify opt.realdata=true; to perform model selection on experimental data. 
-    
-  2) run <strong>RUN_H_hierarchy()</strong> and specify in <strong>getAppSettings_hierarchy.m</strong> which models to compare and which data to use for the fit.
-  
-  3) run BuildScoresMatrix() for selection of models that should be compared.
-  
-  4) for Results visualization run jupyter notebook
-  
-    a) Hematopoiesis_Graphics_Results_hierarchyComparisonRun.ipynb for a fixed number of intermediate states but varying hierarchies (model_A, model_B, etc.)
-  
-    b) Hematopoiesis_Graphics_Results_hierarchyComparisonRun_IntermediateStates_redData.ipynb if different numbers of intermediate states should be compared
+### In silico analysis
+ 1) To perform in silico model selection go to folder <strong>./MATLAB/in_silico_analysis</strong>, specify settings in <strong>getInSilicoSettings.m</strong> and run <strong>in_silico_main()</strong>.
  
-
+ 2) For Results visualization go to folder <strong>./Python</strong> and run jupyter notebook <strong>results_visualization_in_silico_analysis.ipynb</strong>
+ 
+In general, to change settings regarding optimization such as number of multistarts or number of workers (to run code in parallel) go to folder <strong>./MATLAB/utils</strong> and make changes in <strong>getOptimizationSettings.m</strong>
 
     
     

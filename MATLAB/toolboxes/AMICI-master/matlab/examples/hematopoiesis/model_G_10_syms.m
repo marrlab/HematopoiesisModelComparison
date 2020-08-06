@@ -1,0 +1,917 @@
+function [model] = model_G_10_syms()
+% set the parametrisation of the problem options are 'log', 'log10' and
+% 'lin' (default).
+% model.param = 'log10';
+
+%%
+% STATES
+
+% create state syms
+syms x1 x2 x3 x4 x5 x6 x7 x8 x9 x10 x11 x12 x13 x14 x15 x16 x17 x18 x19 x20 x21 x22 x23 x24 x25 x26 x27 x28 x29 x30 x31 x32 x33 x34 x35 x36 x37 x38 x39 x40 x41 x42 x43 x44 x45 x46 x47 x48 x49 x50 x51 x52 x53 x54 x55 x56 x57 x58 x59 x60 x61 x62 x63 x64 x65 x66 x67 x68 x69 x70 x71 x72 x73 x74 x75 x76 x77 x78 x79 x80 x81 x82 x83 x84 x85 x86 x87 x88 x89 x90 x91 x92 x93 x94 x95 x96 x97 x98 x99 x100 x101 x102 x103 x104 x105 x106 x107 x108 x109 x110 x111 x112 x113 x114 x115 x116 x117 x118 x119 x120 x121 x122 x123 x124 x125 x126 x127 x128 x129 x130 x131 x132 x133 x134 x135 x136 x137 x138 x139 x140 x141 x142 x143 x144 x145 x146 x147 x148 x149 x150 x151 x152 x153 x154 x155 x156 x157 x158 x159 x160 x161 x162 x163 x164 x165 x166 x167 x168 x169 x170 x171 x172 x173 x174 x175 x176 x177 x178 x179 x180 x181 x182 x183 x184 x185 x186 x187 x188 x189 x190 x191 x192 x193 x194 x195 x196 x197 x198 x199 x200 x201 x202 x203 x204 x205 x206 x207 x208 x209 x210 x211 x212 x213 x214 x215 x216 x217 x218 x219 x220 x221 x222 x223 x224 x225 x226 x227 x228 x229 x230 x231 x232 x233 x234 x235 x236 x237 x238 x239 x240 x241 x242 x243 x244 x245 x246 x247 x248 x249 x250 x251 x252 x253 x254 x255 x256 x257 x258 x259 x260 x261 x262 x263 x264 x265 x266 x267 x268 x269 x270 x271 x272 x273 x274 x275 x276 x277 x278 x279 x280 x281 x282 x283 x284 x285 x286 x287 x288 x289 x290 x291 x292 x293 x294 x295 x296 x297 x298 x299 x300 x301 x302 x303 x304 x305 x306 x307 x308 x309 x310 x311 x312 x313 x314 x315 x316 x317 x318 x319 x320 x321 x322 x323 x324 x325 x326 x327 x328 x329 x330 x331 x332 x333 x334 x335 x336 x337 x338 x339 x340 x341 x342 x343 x344 x345 x346 x347 x348 x349 x350 x351 x352 x353 x354 x355 x356 x357 x358 x359 x360 x361 x362 x363 x364 x365 x366 x367 x368 x369 x370 x371 x372 x373 x374 x375 x376 x377 x378 x379 x380 x381 x382 x383 x384 x385 x386 x387 x388 x389 x390 x391 x392 x393 x394 x395 x396 x397 x398 x399 x400 x401 x402 x403 x404 x405 x406 x407 x408 x409 x410 x411 x412 x413 x414 x415 x416 x417 x418 x419 x420 x421 x422 x423 x424 x425 x426 x427 x428 x429 x430 x431 x432 x433 x434 x435 x436 x437 x438 x439 x440 x441 x442 x443 x444 x445 x446 x447 x448 x449 x450 x451 x452 x453 x454 x455 x456 x457 x458 x459 x460 x461 x462 x463 x464 x465 x466 x467 x468 x469 x470 x471 x472 x473 x474 x475 x476 x477 x478 x479 x480 x481 x482 x483 x484 x485 x486 x487 x488 x489 x490 x491 x492 x493 x494 x495 x496 x497 x498 x499 x500 x501 x502 x503 x504 x505 x506 x507 x508 x509 x510 x511 x512 x513 x514 x515 x516 x517 x518 x519 x520 x521 x522 x523 x524 x525 x526 x527 x528 x529 x530 x531 x532 x533 x534 x535 x536 x537 x538 x539 x540 x541 x542 x543 x544 x545 x546 x547 x548 x549 x550 x551 x552 x553 x554 x555 x556 x557 x558 x559 x560 x561 x562 x563 x564 x565 x566 x567 x568 x569 x570 x571 x572 x573 x574 x575 x576 x577 x578 x579 x580 x581 x582 x583 x584 x585 x586 x587 x588 x589 x590 x591 x592 x593 x594 x595 x596 x597 x598 x599 x600 x601 x602 x603 x604 x605 x606 x607 x608 x609 x610 x611 x612 x613 x614 x615 x616 x617 x618 x619 x620 x621 x622 x623 x624 x625 x626 x627 x628 x629 x630 x631 x632 x633 x634 x635 x636 x637 x638 x639 x640 x641 x642 x643 x644 x645 x646 x647 x648 x649 x650 x651 x652 x653 x654 x655 x656 x657 x658 x659 x660 x661 x662 x663 x664 x665 x666 x667 x668 x669 x670 x671 x672 x673 x674 x675 x676 x677 x678 x679 x680 x681 x682 x683 x684 x685 x686 x687 x688 x689 x690 x691 x692 x693 x694 x695 x696 x697 x698 x699 x700 x701 x702 x703 x704 x705 x706 x707 x708 x709 x710 x711 x712 x713 x714 x715 x716 x717 x718 x719 x720 x721 x722 x723 x724 x725 x726 x727 x728 x729 x730 x731 x732 x733 x734 x735 x736 x737 x738 x739 x740 x741 x742 x743 x744 x745 x746 x747 x748 x749 x750 x751 x752 x753 x754 x755 x756 x757 x758 x759 x760 x761 x762 x763 x764 x765 x766 x767 x768 x769 x770 x771 x772 x773 x774 x775 x776 x777 x778 x779 x780 x781 x782 x783 x784
+
+% create state vector
+x = [
+ x1 x2 x3 x4 x5 x6 x7 x8 x9 x10 x11 x12 x13 x14 x15 x16 x17 x18 x19 x20 x21 x22 x23 x24 x25 x26 x27 x28 x29 x30 x31 x32 x33 x34 x35 x36 x37 x38 x39 x40 x41 x42 x43 x44 x45 x46 x47 x48 x49 x50 x51 x52 x53 x54 x55 x56 x57 x58 x59 x60 x61 x62 x63 x64 x65 x66 x67 x68 x69 x70 x71 x72 x73 x74 x75 x76 x77 x78 x79 x80 x81 x82 x83 x84 x85 x86 x87 x88 x89 x90 x91 x92 x93 x94 x95 x96 x97 x98 x99 x100 x101 x102 x103 x104 x105 x106 x107 x108 x109 x110 x111 x112 x113 x114 x115 x116 x117 x118 x119 x120 x121 x122 x123 x124 x125 x126 x127 x128 x129 x130 x131 x132 x133 x134 x135 x136 x137 x138 x139 x140 x141 x142 x143 x144 x145 x146 x147 x148 x149 x150 x151 x152 x153 x154 x155 x156 x157 x158 x159 x160 x161 x162 x163 x164 x165 x166 x167 x168 x169 x170 x171 x172 x173 x174 x175 x176 x177 x178 x179 x180 x181 x182 x183 x184 x185 x186 x187 x188 x189 x190 x191 x192 x193 x194 x195 x196 x197 x198 x199 x200 x201 x202 x203 x204 x205 x206 x207 x208 x209 x210 x211 x212 x213 x214 x215 x216 x217 x218 x219 x220 x221 x222 x223 x224 x225 x226 x227 x228 x229 x230 x231 x232 x233 x234 x235 x236 x237 x238 x239 x240 x241 x242 x243 x244 x245 x246 x247 x248 x249 x250 x251 x252 x253 x254 x255 x256 x257 x258 x259 x260 x261 x262 x263 x264 x265 x266 x267 x268 x269 x270 x271 x272 x273 x274 x275 x276 x277 x278 x279 x280 x281 x282 x283 x284 x285 x286 x287 x288 x289 x290 x291 x292 x293 x294 x295 x296 x297 x298 x299 x300 x301 x302 x303 x304 x305 x306 x307 x308 x309 x310 x311 x312 x313 x314 x315 x316 x317 x318 x319 x320 x321 x322 x323 x324 x325 x326 x327 x328 x329 x330 x331 x332 x333 x334 x335 x336 x337 x338 x339 x340 x341 x342 x343 x344 x345 x346 x347 x348 x349 x350 x351 x352 x353 x354 x355 x356 x357 x358 x359 x360 x361 x362 x363 x364 x365 x366 x367 x368 x369 x370 x371 x372 x373 x374 x375 x376 x377 x378 x379 x380 x381 x382 x383 x384 x385 x386 x387 x388 x389 x390 x391 x392 x393 x394 x395 x396 x397 x398 x399 x400 x401 x402 x403 x404 x405 x406 x407 x408 x409 x410 x411 x412 x413 x414 x415 x416 x417 x418 x419 x420 x421 x422 x423 x424 x425 x426 x427 x428 x429 x430 x431 x432 x433 x434 x435 x436 x437 x438 x439 x440 x441 x442 x443 x444 x445 x446 x447 x448 x449 x450 x451 x452 x453 x454 x455 x456 x457 x458 x459 x460 x461 x462 x463 x464 x465 x466 x467 x468 x469 x470 x471 x472 x473 x474 x475 x476 x477 x478 x479 x480 x481 x482 x483 x484 x485 x486 x487 x488 x489 x490 x491 x492 x493 x494 x495 x496 x497 x498 x499 x500 x501 x502 x503 x504 x505 x506 x507 x508 x509 x510 x511 x512 x513 x514 x515 x516 x517 x518 x519 x520 x521 x522 x523 x524 x525 x526 x527 x528 x529 x530 x531 x532 x533 x534 x535 x536 x537 x538 x539 x540 x541 x542 x543 x544 x545 x546 x547 x548 x549 x550 x551 x552 x553 x554 x555 x556 x557 x558 x559 x560 x561 x562 x563 x564 x565 x566 x567 x568 x569 x570 x571 x572 x573 x574 x575 x576 x577 x578 x579 x580 x581 x582 x583 x584 x585 x586 x587 x588 x589 x590 x591 x592 x593 x594 x595 x596 x597 x598 x599 x600 x601 x602 x603 x604 x605 x606 x607 x608 x609 x610 x611 x612 x613 x614 x615 x616 x617 x618 x619 x620 x621 x622 x623 x624 x625 x626 x627 x628 x629 x630 x631 x632 x633 x634 x635 x636 x637 x638 x639 x640 x641 x642 x643 x644 x645 x646 x647 x648 x649 x650 x651 x652 x653 x654 x655 x656 x657 x658 x659 x660 x661 x662 x663 x664 x665 x666 x667 x668 x669 x670 x671 x672 x673 x674 x675 x676 x677 x678 x679 x680 x681 x682 x683 x684 x685 x686 x687 x688 x689 x690 x691 x692 x693 x694 x695 x696 x697 x698 x699 x700 x701 x702 x703 x704 x705 x706 x707 x708 x709 x710 x711 x712 x713 x714 x715 x716 x717 x718 x719 x720 x721 x722 x723 x724 x725 x726 x727 x728 x729 x730 x731 x732 x733 x734 x735 x736 x737 x738 x739 x740 x741 x742 x743 x744 x745 x746 x747 x748 x749 x750 x751 x752 x753 x754 x755 x756 x757 x758 x759 x760 x761 x762 x763 x764 x765 x766 x767 x768 x769 x770 x771 x772 x773 x774 x775 x776 x777 x778 x779 x780 x781 x782 x783 x784
+];
+
+%%
+% PARAMETERS ( for these sensitivities will be computed )
+
+% create parameter syms
+syms x0_1 x0_2 x0_3 x0_4 x0_5 x0_6 x0_7 a_HSC_MEP a_HSC_MPP b_HSC g_HSC a_MEP_mat b_MEP g_MEP a_MPP_CMP a_MPP_MLP b_MPP g_MPP a_CMP_GMP b_CMP g_CMP a_MLP b_MLP a_GMP_mat b_GMP g_GMP b_mat g_mat
+
+% create parameter vector 
+p= [x0_1 x0_2 x0_3 x0_4 x0_5 x0_6 x0_7 a_HSC_MEP a_HSC_MPP b_HSC g_HSC a_MEP_mat b_MEP g_MEP a_MPP_CMP a_MPP_MLP b_MPP g_MPP a_CMP_GMP b_CMP g_CMP a_MLP b_MLP a_GMP_mat b_GMP g_GMP b_mat g_mat];
+
+%%
+% CONSTANTS ( for these no sensitivities will be computed )
+% this part is optional and can be ommited
+
+% create constants syms
+k=[];
+% k=[x0_1, x0_2, x0_3, x0_4, x0_5, x0_6, x0_7, x0_8];
+
+
+%%
+% SYSTEM EQUATIONS
+% create symbolic variable for time
+syms t
+
+xdot = sym(zeros(size(x)));
+
+
+%HSC
+xdot(1) =-(b_HSC*5+a_HSC_MEP*5+a_HSC_MPP*5+g_HSC*5)*x1;
+xdot(2) =+b_HSC*5*(x1-x2);
+xdot(3) =+b_HSC*5*(x2-x3);
+xdot(4) =+b_HSC*5*(x3-x4);
+xdot(5) =+b_HSC*5*(x4-x5);
+xdot(6) =+b_HSC*5*(x5-x6);
+xdot(7) =a_HSC_MEP*5*(x1-x7);
+xdot(8) =a_HSC_MEP*5*(x7-x8);
+xdot(9) =a_HSC_MEP*5*(x8-x9);
+xdot(10) =a_HSC_MEP*5*(x9-x10);
+xdot(11) =a_HSC_MEP*5*(x10-x11);
+xdot(12) =a_HSC_MPP*5*(x1-x12);
+xdot(13) =a_HSC_MPP*5*(x12-x13);
+xdot(14) =a_HSC_MPP*5*(x13-x14);
+xdot(15) =a_HSC_MPP*5*(x14-x15);
+xdot(16) =a_HSC_MPP*5*(x15-x16);
+xdot(17) =g_HSC*5*(x1-x17);
+xdot(18) =g_HSC*5*(x17-x18);
+xdot(19) =g_HSC*5*(x18-x19);
+xdot(20) =g_HSC*5*(x19-x20);
+xdot(21) =g_HSC*5*(x20-x21);
+xdot(22) =+2*b_HSC*5*x6-(b_HSC*5+a_HSC_MEP*5+a_HSC_MPP*5+g_HSC*5)*x22;
+xdot(23) =+b_HSC*5*(x22-x23);
+xdot(24) =+b_HSC*5*(x23-x24);
+xdot(25) =+b_HSC*5*(x24-x25);
+xdot(26) =+b_HSC*5*(x25-x26);
+xdot(27) =+b_HSC*5*(x26-x27);
+xdot(28) =a_HSC_MEP*5*(x22-x28);
+xdot(29) =a_HSC_MEP*5*(x28-x29);
+xdot(30) =a_HSC_MEP*5*(x29-x30);
+xdot(31) =a_HSC_MEP*5*(x30-x31);
+xdot(32) =a_HSC_MEP*5*(x31-x32);
+xdot(33) =a_HSC_MPP*5*(x22-x33);
+xdot(34) =a_HSC_MPP*5*(x33-x34);
+xdot(35) =a_HSC_MPP*5*(x34-x35);
+xdot(36) =a_HSC_MPP*5*(x35-x36);
+xdot(37) =a_HSC_MPP*5*(x36-x37);
+xdot(38) =g_HSC*5*(x22-x38);
+xdot(39) =g_HSC*5*(x38-x39);
+xdot(40) =g_HSC*5*(x39-x40);
+xdot(41) =g_HSC*5*(x40-x41);
+xdot(42) =g_HSC*5*(x41-x42);
+xdot(43) =+2*b_HSC*5*x27-(b_HSC*5+a_HSC_MEP*5+a_HSC_MPP*5+g_HSC*5)*x43;
+xdot(44) =+b_HSC*5*(x43-x44);
+xdot(45) =+b_HSC*5*(x44-x45);
+xdot(46) =+b_HSC*5*(x45-x46);
+xdot(47) =+b_HSC*5*(x46-x47);
+xdot(48) =+b_HSC*5*(x47-x48);
+xdot(49) =a_HSC_MEP*5*(x43-x49);
+xdot(50) =a_HSC_MEP*5*(x49-x50);
+xdot(51) =a_HSC_MEP*5*(x50-x51);
+xdot(52) =a_HSC_MEP*5*(x51-x52);
+xdot(53) =a_HSC_MEP*5*(x52-x53);
+xdot(54) =a_HSC_MPP*5*(x43-x54);
+xdot(55) =a_HSC_MPP*5*(x54-x55);
+xdot(56) =a_HSC_MPP*5*(x55-x56);
+xdot(57) =a_HSC_MPP*5*(x56-x57);
+xdot(58) =a_HSC_MPP*5*(x57-x58);
+xdot(59) =g_HSC*5*(x43-x59);
+xdot(60) =g_HSC*5*(x59-x60);
+xdot(61) =g_HSC*5*(x60-x61);
+xdot(62) =g_HSC*5*(x61-x62);
+xdot(63) =g_HSC*5*(x62-x63);
+xdot(64) =+2*b_HSC*5*x48-(b_HSC*5+a_HSC_MEP*5+a_HSC_MPP*5+g_HSC*5)*x64;
+xdot(65) =+b_HSC*5*(x64-x65);
+xdot(66) =+b_HSC*5*(x65-x66);
+xdot(67) =+b_HSC*5*(x66-x67);
+xdot(68) =+b_HSC*5*(x67-x68);
+xdot(69) =+b_HSC*5*(x68-x69);
+xdot(70) =a_HSC_MEP*5*(x64-x70);
+xdot(71) =a_HSC_MEP*5*(x70-x71);
+xdot(72) =a_HSC_MEP*5*(x71-x72);
+xdot(73) =a_HSC_MEP*5*(x72-x73);
+xdot(74) =a_HSC_MEP*5*(x73-x74);
+xdot(75) =a_HSC_MPP*5*(x64-x75);
+xdot(76) =a_HSC_MPP*5*(x75-x76);
+xdot(77) =a_HSC_MPP*5*(x76-x77);
+xdot(78) =a_HSC_MPP*5*(x77-x78);
+xdot(79) =a_HSC_MPP*5*(x78-x79);
+xdot(80) =g_HSC*5*(x64-x80);
+xdot(81) =g_HSC*5*(x80-x81);
+xdot(82) =g_HSC*5*(x81-x82);
+xdot(83) =g_HSC*5*(x82-x83);
+xdot(84) =g_HSC*5*(x83-x84);
+xdot(85) =+2*b_HSC*5*x69-(b_HSC*5+a_HSC_MEP*5+a_HSC_MPP*5+g_HSC*5)*x85;
+xdot(86) =+b_HSC*5*(x85-x86);
+xdot(87) =+b_HSC*5*(x86-x87);
+xdot(88) =+b_HSC*5*(x87-x88);
+xdot(89) =+b_HSC*5*(x88-x89);
+xdot(90) =+b_HSC*5*(x89-x90);
+xdot(91) =a_HSC_MEP*5*(x85-x91);
+xdot(92) =a_HSC_MEP*5*(x91-x92);
+xdot(93) =a_HSC_MEP*5*(x92-x93);
+xdot(94) =a_HSC_MEP*5*(x93-x94);
+xdot(95) =a_HSC_MEP*5*(x94-x95);
+xdot(96) =a_HSC_MPP*5*(x85-x96);
+xdot(97) =a_HSC_MPP*5*(x96-x97);
+xdot(98) =a_HSC_MPP*5*(x97-x98);
+xdot(99) =a_HSC_MPP*5*(x98-x99);
+xdot(100) =a_HSC_MPP*5*(x99-x100);
+xdot(101) =g_HSC*5*(x85-x101);
+xdot(102) =g_HSC*5*(x101-x102);
+xdot(103) =g_HSC*5*(x102-x103);
+xdot(104) =g_HSC*5*(x103-x104);
+xdot(105) =g_HSC*5*(x104-x105);
+xdot(106) =+2*b_HSC*5*x90-(b_HSC*5+a_HSC_MEP*5+a_HSC_MPP*5+g_HSC*5)*x106;
+xdot(107) =+b_HSC*5*(x106-x107);
+xdot(108) =+b_HSC*5*(x107-x108);
+xdot(109) =+b_HSC*5*(x108-x109);
+xdot(110) =+b_HSC*5*(x109-x110);
+xdot(111) =+b_HSC*5*(x110-x111);
+xdot(112) =a_HSC_MEP*5*(x106-x112);
+xdot(113) =a_HSC_MEP*5*(x112-x113);
+xdot(114) =a_HSC_MEP*5*(x113-x114);
+xdot(115) =a_HSC_MEP*5*(x114-x115);
+xdot(116) =a_HSC_MEP*5*(x115-x116);
+xdot(117) =a_HSC_MPP*5*(x106-x117);
+xdot(118) =a_HSC_MPP*5*(x117-x118);
+xdot(119) =a_HSC_MPP*5*(x118-x119);
+xdot(120) =a_HSC_MPP*5*(x119-x120);
+xdot(121) =a_HSC_MPP*5*(x120-x121);
+xdot(122) =g_HSC*5*(x106-x122);
+xdot(123) =g_HSC*5*(x122-x123);
+xdot(124) =g_HSC*5*(x123-x124);
+xdot(125) =g_HSC*5*(x124-x125);
+xdot(126) =g_HSC*5*(x125-x126);
+xdot(127) =+2*b_HSC*5*x111+2*b_HSC*5*x132-(b_HSC*5+a_HSC_MEP*5+a_HSC_MPP*5+g_HSC*5)*x127;
+xdot(128) =+b_HSC*5*(x127-x128);
+xdot(129) =+b_HSC*5*(x128-x129);
+xdot(130) =+b_HSC*5*(x129-x130);
+xdot(131) =+b_HSC*5*(x130-x131);
+xdot(132) =+b_HSC*5*(x131-x132);
+xdot(133) =a_HSC_MEP*5*(x127-x133);
+xdot(134) =a_HSC_MEP*5*(x133-x134);
+xdot(135) =a_HSC_MEP*5*(x134-x135);
+xdot(136) =a_HSC_MEP*5*(x135-x136);
+xdot(137) =a_HSC_MEP*5*(x136-x137);
+xdot(138) =a_HSC_MPP*5*(x127-x138);
+xdot(139) =a_HSC_MPP*5*(x138-x139);
+xdot(140) =a_HSC_MPP*5*(x139-x140);
+xdot(141) =a_HSC_MPP*5*(x140-x141);
+xdot(142) =a_HSC_MPP*5*(x141-x142);
+xdot(143) =g_HSC*5*(x127-x143);
+xdot(144) =g_HSC*5*(x143-x144);
+xdot(145) =g_HSC*5*(x144-x145);
+xdot(146) =g_HSC*5*(x145-x146);
+xdot(147) =g_HSC*5*(x146-x147);
+
+%MPP
+xdot(148) =a_HSC_MPP*5*x16-(b_MPP*5+a_MPP_CMP*5+a_MPP_MLP*5+g_MPP*5)*x148;
+xdot(149) =+b_MPP*5*(x148-x149);
+xdot(150) =+b_MPP*5*(x149-x150);
+xdot(151) =+b_MPP*5*(x150-x151);
+xdot(152) =+b_MPP*5*(x151-x152);
+xdot(153) =+b_MPP*5*(x152-x153);
+xdot(154) =a_MPP_CMP*5*(x148-x154);
+xdot(155) =a_MPP_CMP*5*(x154-x155);
+xdot(156) =a_MPP_CMP*5*(x155-x156);
+xdot(157) =a_MPP_CMP*5*(x156-x157);
+xdot(158) =a_MPP_CMP*5*(x157-x158);
+xdot(159) =a_MPP_MLP*5*(x148-x159);
+xdot(160) =a_MPP_MLP*5*(x159-x160);
+xdot(161) =a_MPP_MLP*5*(x160-x161);
+xdot(162) =a_MPP_MLP*5*(x161-x162);
+xdot(163) =a_MPP_MLP*5*(x162-x163);
+xdot(164) =g_MPP*5*(x148-x164);
+xdot(165) =g_MPP*5*(x164-x165);
+xdot(166) =g_MPP*5*(x165-x166);
+xdot(167) =g_MPP*5*(x166-x167);
+xdot(168) =g_MPP*5*(x167-x168);
+xdot(169) =a_HSC_MPP*5*x37+2*b_MPP*5*x153-(b_MPP*5+a_MPP_CMP*5+a_MPP_MLP*5+g_MPP*5)*x169;
+xdot(170) =+b_MPP*5*(x169-x170);
+xdot(171) =+b_MPP*5*(x170-x171);
+xdot(172) =+b_MPP*5*(x171-x172);
+xdot(173) =+b_MPP*5*(x172-x173);
+xdot(174) =+b_MPP*5*(x173-x174);
+xdot(175) =a_MPP_CMP*5*(x169-x175);
+xdot(176) =a_MPP_CMP*5*(x175-x176);
+xdot(177) =a_MPP_CMP*5*(x176-x177);
+xdot(178) =a_MPP_CMP*5*(x177-x178);
+xdot(179) =a_MPP_CMP*5*(x178-x179);
+xdot(180) =a_MPP_MLP*5*(x169-x180);
+xdot(181) =a_MPP_MLP*5*(x180-x181);
+xdot(182) =a_MPP_MLP*5*(x181-x182);
+xdot(183) =a_MPP_MLP*5*(x182-x183);
+xdot(184) =a_MPP_MLP*5*(x183-x184);
+xdot(185) =g_MPP*5*(x169-x185);
+xdot(186) =g_MPP*5*(x185-x186);
+xdot(187) =g_MPP*5*(x186-x187);
+xdot(188) =g_MPP*5*(x187-x188);
+xdot(189) =g_MPP*5*(x188-x189);
+xdot(190) =a_HSC_MPP*5*x58+2*b_MPP*5*x174-(b_MPP*5+a_MPP_CMP*5+a_MPP_MLP*5+g_MPP*5)*x190;
+xdot(191) =+b_MPP*5*(x190-x191);
+xdot(192) =+b_MPP*5*(x191-x192);
+xdot(193) =+b_MPP*5*(x192-x193);
+xdot(194) =+b_MPP*5*(x193-x194);
+xdot(195) =+b_MPP*5*(x194-x195);
+xdot(196) =a_MPP_CMP*5*(x190-x196);
+xdot(197) =a_MPP_CMP*5*(x196-x197);
+xdot(198) =a_MPP_CMP*5*(x197-x198);
+xdot(199) =a_MPP_CMP*5*(x198-x199);
+xdot(200) =a_MPP_CMP*5*(x199-x200);
+xdot(201) =a_MPP_MLP*5*(x190-x201);
+xdot(202) =a_MPP_MLP*5*(x201-x202);
+xdot(203) =a_MPP_MLP*5*(x202-x203);
+xdot(204) =a_MPP_MLP*5*(x203-x204);
+xdot(205) =a_MPP_MLP*5*(x204-x205);
+xdot(206) =g_MPP*5*(x190-x206);
+xdot(207) =g_MPP*5*(x206-x207);
+xdot(208) =g_MPP*5*(x207-x208);
+xdot(209) =g_MPP*5*(x208-x209);
+xdot(210) =g_MPP*5*(x209-x210);
+xdot(211) =a_HSC_MPP*5*x79+2*b_MPP*5*x195-(b_MPP*5+a_MPP_CMP*5+a_MPP_MLP*5+g_MPP*5)*x211;
+xdot(212) =+b_MPP*5*(x211-x212);
+xdot(213) =+b_MPP*5*(x212-x213);
+xdot(214) =+b_MPP*5*(x213-x214);
+xdot(215) =+b_MPP*5*(x214-x215);
+xdot(216) =+b_MPP*5*(x215-x216);
+xdot(217) =a_MPP_CMP*5*(x211-x217);
+xdot(218) =a_MPP_CMP*5*(x217-x218);
+xdot(219) =a_MPP_CMP*5*(x218-x219);
+xdot(220) =a_MPP_CMP*5*(x219-x220);
+xdot(221) =a_MPP_CMP*5*(x220-x221);
+xdot(222) =a_MPP_MLP*5*(x211-x222);
+xdot(223) =a_MPP_MLP*5*(x222-x223);
+xdot(224) =a_MPP_MLP*5*(x223-x224);
+xdot(225) =a_MPP_MLP*5*(x224-x225);
+xdot(226) =a_MPP_MLP*5*(x225-x226);
+xdot(227) =g_MPP*5*(x211-x227);
+xdot(228) =g_MPP*5*(x227-x228);
+xdot(229) =g_MPP*5*(x228-x229);
+xdot(230) =g_MPP*5*(x229-x230);
+xdot(231) =g_MPP*5*(x230-x231);
+xdot(232) =a_HSC_MPP*5*x100+2*b_MPP*5*x216-(b_MPP*5+a_MPP_CMP*5+a_MPP_MLP*5+g_MPP*5)*x232;
+xdot(233) =+b_MPP*5*(x232-x233);
+xdot(234) =+b_MPP*5*(x233-x234);
+xdot(235) =+b_MPP*5*(x234-x235);
+xdot(236) =+b_MPP*5*(x235-x236);
+xdot(237) =+b_MPP*5*(x236-x237);
+xdot(238) =a_MPP_CMP*5*(x232-x238);
+xdot(239) =a_MPP_CMP*5*(x238-x239);
+xdot(240) =a_MPP_CMP*5*(x239-x240);
+xdot(241) =a_MPP_CMP*5*(x240-x241);
+xdot(242) =a_MPP_CMP*5*(x241-x242);
+xdot(243) =a_MPP_MLP*5*(x232-x243);
+xdot(244) =a_MPP_MLP*5*(x243-x244);
+xdot(245) =a_MPP_MLP*5*(x244-x245);
+xdot(246) =a_MPP_MLP*5*(x245-x246);
+xdot(247) =a_MPP_MLP*5*(x246-x247);
+xdot(248) =g_MPP*5*(x232-x248);
+xdot(249) =g_MPP*5*(x248-x249);
+xdot(250) =g_MPP*5*(x249-x250);
+xdot(251) =g_MPP*5*(x250-x251);
+xdot(252) =g_MPP*5*(x251-x252);
+xdot(253) =a_HSC_MPP*5*x121+2*b_MPP*5*x237-(b_MPP*5+a_MPP_CMP*5+a_MPP_MLP*5+g_MPP*5)*x253;
+xdot(254) =+b_MPP*5*(x253-x254);
+xdot(255) =+b_MPP*5*(x254-x255);
+xdot(256) =+b_MPP*5*(x255-x256);
+xdot(257) =+b_MPP*5*(x256-x257);
+xdot(258) =+b_MPP*5*(x257-x258);
+xdot(259) =a_MPP_CMP*5*(x253-x259);
+xdot(260) =a_MPP_CMP*5*(x259-x260);
+xdot(261) =a_MPP_CMP*5*(x260-x261);
+xdot(262) =a_MPP_CMP*5*(x261-x262);
+xdot(263) =a_MPP_CMP*5*(x262-x263);
+xdot(264) =a_MPP_MLP*5*(x253-x264);
+xdot(265) =a_MPP_MLP*5*(x264-x265);
+xdot(266) =a_MPP_MLP*5*(x265-x266);
+xdot(267) =a_MPP_MLP*5*(x266-x267);
+xdot(268) =a_MPP_MLP*5*(x267-x268);
+xdot(269) =g_MPP*5*(x253-x269);
+xdot(270) =g_MPP*5*(x269-x270);
+xdot(271) =g_MPP*5*(x270-x271);
+xdot(272) =g_MPP*5*(x271-x272);
+xdot(273) =g_MPP*5*(x272-x273);
+xdot(274) =a_HSC_MPP*5*x142+2*b_MPP*5*x258+2*b_MPP*5*x279-(b_MPP*5+a_MPP_CMP*5+a_MPP_MLP*5+g_MPP*5)*x274;
+xdot(275) =+b_MPP*5*(x274-x275);
+xdot(276) =+b_MPP*5*(x275-x276);
+xdot(277) =+b_MPP*5*(x276-x277);
+xdot(278) =+b_MPP*5*(x277-x278);
+xdot(279) =+b_MPP*5*(x278-x279);
+xdot(280) =a_MPP_CMP*5*(x274-x280);
+xdot(281) =a_MPP_CMP*5*(x280-x281);
+xdot(282) =a_MPP_CMP*5*(x281-x282);
+xdot(283) =a_MPP_CMP*5*(x282-x283);
+xdot(284) =a_MPP_CMP*5*(x283-x284);
+xdot(285) =a_MPP_MLP*5*(x274-x285);
+xdot(286) =a_MPP_MLP*5*(x285-x286);
+xdot(287) =a_MPP_MLP*5*(x286-x287);
+xdot(288) =a_MPP_MLP*5*(x287-x288);
+xdot(289) =a_MPP_MLP*5*(x288-x289);
+xdot(290) =g_MPP*5*(x274-x290);
+xdot(291) =g_MPP*5*(x290-x291);
+xdot(292) =g_MPP*5*(x291-x292);
+xdot(293) =g_MPP*5*(x292-x293);
+xdot(294) =g_MPP*5*(x293-x294);
+
+%MLP
+xdot(295) =a_MPP_MLP*5*x163-(b_MLP*5+a_MLP*5)*x295;
+xdot(296) =+b_MLP*5*(x295-x296);
+xdot(297) =+b_MLP*5*(x296-x297);
+xdot(298) =+b_MLP*5*(x297-x298);
+xdot(299) =+b_MLP*5*(x298-x299);
+xdot(300) =+b_MLP*5*(x299-x300);
+xdot(301) =a_MLP*5*(x295-x301);
+xdot(302) =a_MLP*5*(x301-x302);
+xdot(303) =a_MLP*5*(x302-x303);
+xdot(304) =a_MLP*5*(x303-x304);
+xdot(305) =a_MLP*5*(x304-x305);
+xdot(306) =a_MPP_MLP*5*x184+2*b_MLP*5*x300-(b_MLP*5+a_MLP*5)*x306;
+xdot(307) =+b_MLP*5*(x306-x307);
+xdot(308) =+b_MLP*5*(x307-x308);
+xdot(309) =+b_MLP*5*(x308-x309);
+xdot(310) =+b_MLP*5*(x309-x310);
+xdot(311) =+b_MLP*5*(x310-x311);
+xdot(312) =a_MLP*5*(x306-x312);
+xdot(313) =a_MLP*5*(x312-x313);
+xdot(314) =a_MLP*5*(x313-x314);
+xdot(315) =a_MLP*5*(x314-x315);
+xdot(316) =a_MLP*5*(x315-x316);
+xdot(317) =a_MPP_MLP*5*x205+2*b_MLP*5*x311-(b_MLP*5+a_MLP*5)*x317;
+xdot(318) =+b_MLP*5*(x317-x318);
+xdot(319) =+b_MLP*5*(x318-x319);
+xdot(320) =+b_MLP*5*(x319-x320);
+xdot(321) =+b_MLP*5*(x320-x321);
+xdot(322) =+b_MLP*5*(x321-x322);
+xdot(323) =a_MLP*5*(x317-x323);
+xdot(324) =a_MLP*5*(x323-x324);
+xdot(325) =a_MLP*5*(x324-x325);
+xdot(326) =a_MLP*5*(x325-x326);
+xdot(327) =a_MLP*5*(x326-x327);
+xdot(328) =a_MPP_MLP*5*x226+2*b_MLP*5*x322-(b_MLP*5+a_MLP*5)*x328;
+xdot(329) =+b_MLP*5*(x328-x329);
+xdot(330) =+b_MLP*5*(x329-x330);
+xdot(331) =+b_MLP*5*(x330-x331);
+xdot(332) =+b_MLP*5*(x331-x332);
+xdot(333) =+b_MLP*5*(x332-x333);
+xdot(334) =a_MLP*5*(x328-x334);
+xdot(335) =a_MLP*5*(x334-x335);
+xdot(336) =a_MLP*5*(x335-x336);
+xdot(337) =a_MLP*5*(x336-x337);
+xdot(338) =a_MLP*5*(x337-x338);
+xdot(339) =a_MPP_MLP*5*x247+2*b_MLP*5*x333-(b_MLP*5+a_MLP*5)*x339;
+xdot(340) =+b_MLP*5*(x339-x340);
+xdot(341) =+b_MLP*5*(x340-x341);
+xdot(342) =+b_MLP*5*(x341-x342);
+xdot(343) =+b_MLP*5*(x342-x343);
+xdot(344) =+b_MLP*5*(x343-x344);
+xdot(345) =a_MLP*5*(x339-x345);
+xdot(346) =a_MLP*5*(x345-x346);
+xdot(347) =a_MLP*5*(x346-x347);
+xdot(348) =a_MLP*5*(x347-x348);
+xdot(349) =a_MLP*5*(x348-x349);
+xdot(350) =a_MPP_MLP*5*x268+2*b_MLP*5*x344-(b_MLP*5+a_MLP*5)*x350;
+xdot(351) =+b_MLP*5*(x350-x351);
+xdot(352) =+b_MLP*5*(x351-x352);
+xdot(353) =+b_MLP*5*(x352-x353);
+xdot(354) =+b_MLP*5*(x353-x354);
+xdot(355) =+b_MLP*5*(x354-x355);
+xdot(356) =a_MLP*5*(x350-x356);
+xdot(357) =a_MLP*5*(x356-x357);
+xdot(358) =a_MLP*5*(x357-x358);
+xdot(359) =a_MLP*5*(x358-x359);
+xdot(360) =a_MLP*5*(x359-x360);
+xdot(361) =a_MPP_MLP*5*x289+2*b_MLP*5*x355+2*b_MLP*5*x366-(b_MLP*5+a_MLP*5)*x361;
+xdot(362) =+b_MLP*5*(x361-x362);
+xdot(363) =+b_MLP*5*(x362-x363);
+xdot(364) =+b_MLP*5*(x363-x364);
+xdot(365) =+b_MLP*5*(x364-x365);
+xdot(366) =+b_MLP*5*(x365-x366);
+xdot(367) =a_MLP*5*(x361-x367);
+xdot(368) =a_MLP*5*(x367-x368);
+xdot(369) =a_MLP*5*(x368-x369);
+xdot(370) =a_MLP*5*(x369-x370);
+xdot(371) =a_MLP*5*(x370-x371);
+
+%CMP
+xdot(372) =a_MPP_CMP*5*x158-(b_CMP*5+a_CMP_GMP*5+g_CMP*5)*x372;
+xdot(373) =+b_CMP*5*(x372-x373);
+xdot(374) =+b_CMP*5*(x373-x374);
+xdot(375) =+b_CMP*5*(x374-x375);
+xdot(376) =+b_CMP*5*(x375-x376);
+xdot(377) =+b_CMP*5*(x376-x377);
+xdot(378) =a_CMP_GMP*5*(x372-x378);
+xdot(379) =a_CMP_GMP*5*(x378-x379);
+xdot(380) =a_CMP_GMP*5*(x379-x380);
+xdot(381) =a_CMP_GMP*5*(x380-x381);
+xdot(382) =a_CMP_GMP*5*(x381-x382);
+xdot(383) =g_CMP*5*(x372-x383);
+xdot(384) =g_CMP*5*(x383-x384);
+xdot(385) =g_CMP*5*(x384-x385);
+xdot(386) =g_CMP*5*(x385-x386);
+xdot(387) =g_CMP*5*(x386-x387);
+xdot(388) =a_MPP_CMP*5*x179+2*b_CMP*5*x377-(b_CMP*5+a_CMP_GMP*5+g_CMP*5)*x388;
+xdot(389) =+b_CMP*5*(x388-x389);
+xdot(390) =+b_CMP*5*(x389-x390);
+xdot(391) =+b_CMP*5*(x390-x391);
+xdot(392) =+b_CMP*5*(x391-x392);
+xdot(393) =+b_CMP*5*(x392-x393);
+xdot(394) =a_CMP_GMP*5*(x388-x394);
+xdot(395) =a_CMP_GMP*5*(x394-x395);
+xdot(396) =a_CMP_GMP*5*(x395-x396);
+xdot(397) =a_CMP_GMP*5*(x396-x397);
+xdot(398) =a_CMP_GMP*5*(x397-x398);
+xdot(399) =g_CMP*5*(x388-x399);
+xdot(400) =g_CMP*5*(x399-x400);
+xdot(401) =g_CMP*5*(x400-x401);
+xdot(402) =g_CMP*5*(x401-x402);
+xdot(403) =g_CMP*5*(x402-x403);
+xdot(404) =a_MPP_CMP*5*x200+2*b_CMP*5*x393-(b_CMP*5+a_CMP_GMP*5+g_CMP*5)*x404;
+xdot(405) =+b_CMP*5*(x404-x405);
+xdot(406) =+b_CMP*5*(x405-x406);
+xdot(407) =+b_CMP*5*(x406-x407);
+xdot(408) =+b_CMP*5*(x407-x408);
+xdot(409) =+b_CMP*5*(x408-x409);
+xdot(410) =a_CMP_GMP*5*(x404-x410);
+xdot(411) =a_CMP_GMP*5*(x410-x411);
+xdot(412) =a_CMP_GMP*5*(x411-x412);
+xdot(413) =a_CMP_GMP*5*(x412-x413);
+xdot(414) =a_CMP_GMP*5*(x413-x414);
+xdot(415) =g_CMP*5*(x404-x415);
+xdot(416) =g_CMP*5*(x415-x416);
+xdot(417) =g_CMP*5*(x416-x417);
+xdot(418) =g_CMP*5*(x417-x418);
+xdot(419) =g_CMP*5*(x418-x419);
+xdot(420) =a_MPP_CMP*5*x221+2*b_CMP*5*x409-(b_CMP*5+a_CMP_GMP*5+g_CMP*5)*x420;
+xdot(421) =+b_CMP*5*(x420-x421);
+xdot(422) =+b_CMP*5*(x421-x422);
+xdot(423) =+b_CMP*5*(x422-x423);
+xdot(424) =+b_CMP*5*(x423-x424);
+xdot(425) =+b_CMP*5*(x424-x425);
+xdot(426) =a_CMP_GMP*5*(x420-x426);
+xdot(427) =a_CMP_GMP*5*(x426-x427);
+xdot(428) =a_CMP_GMP*5*(x427-x428);
+xdot(429) =a_CMP_GMP*5*(x428-x429);
+xdot(430) =a_CMP_GMP*5*(x429-x430);
+xdot(431) =g_CMP*5*(x420-x431);
+xdot(432) =g_CMP*5*(x431-x432);
+xdot(433) =g_CMP*5*(x432-x433);
+xdot(434) =g_CMP*5*(x433-x434);
+xdot(435) =g_CMP*5*(x434-x435);
+xdot(436) =a_MPP_CMP*5*x242+2*b_CMP*5*x425-(b_CMP*5+a_CMP_GMP*5+g_CMP*5)*x436;
+xdot(437) =+b_CMP*5*(x436-x437);
+xdot(438) =+b_CMP*5*(x437-x438);
+xdot(439) =+b_CMP*5*(x438-x439);
+xdot(440) =+b_CMP*5*(x439-x440);
+xdot(441) =+b_CMP*5*(x440-x441);
+xdot(442) =a_CMP_GMP*5*(x436-x442);
+xdot(443) =a_CMP_GMP*5*(x442-x443);
+xdot(444) =a_CMP_GMP*5*(x443-x444);
+xdot(445) =a_CMP_GMP*5*(x444-x445);
+xdot(446) =a_CMP_GMP*5*(x445-x446);
+xdot(447) =g_CMP*5*(x436-x447);
+xdot(448) =g_CMP*5*(x447-x448);
+xdot(449) =g_CMP*5*(x448-x449);
+xdot(450) =g_CMP*5*(x449-x450);
+xdot(451) =g_CMP*5*(x450-x451);
+xdot(452) =a_MPP_CMP*5*x263+2*b_CMP*5*x441-(b_CMP*5+a_CMP_GMP*5+g_CMP*5)*x452;
+xdot(453) =+b_CMP*5*(x452-x453);
+xdot(454) =+b_CMP*5*(x453-x454);
+xdot(455) =+b_CMP*5*(x454-x455);
+xdot(456) =+b_CMP*5*(x455-x456);
+xdot(457) =+b_CMP*5*(x456-x457);
+xdot(458) =a_CMP_GMP*5*(x452-x458);
+xdot(459) =a_CMP_GMP*5*(x458-x459);
+xdot(460) =a_CMP_GMP*5*(x459-x460);
+xdot(461) =a_CMP_GMP*5*(x460-x461);
+xdot(462) =a_CMP_GMP*5*(x461-x462);
+xdot(463) =g_CMP*5*(x452-x463);
+xdot(464) =g_CMP*5*(x463-x464);
+xdot(465) =g_CMP*5*(x464-x465);
+xdot(466) =g_CMP*5*(x465-x466);
+xdot(467) =g_CMP*5*(x466-x467);
+xdot(468) =a_MPP_CMP*5*x284+2*b_CMP*5*x457+2*b_CMP*5*x473-(b_CMP*5+a_CMP_GMP*5+g_CMP*5)*x468;
+xdot(469) =+b_CMP*5*(x468-x469);
+xdot(470) =+b_CMP*5*(x469-x470);
+xdot(471) =+b_CMP*5*(x470-x471);
+xdot(472) =+b_CMP*5*(x471-x472);
+xdot(473) =+b_CMP*5*(x472-x473);
+xdot(474) =a_CMP_GMP*5*(x468-x474);
+xdot(475) =a_CMP_GMP*5*(x474-x475);
+xdot(476) =a_CMP_GMP*5*(x475-x476);
+xdot(477) =a_CMP_GMP*5*(x476-x477);
+xdot(478) =a_CMP_GMP*5*(x477-x478);
+xdot(479) =g_CMP*5*(x468-x479);
+xdot(480) =g_CMP*5*(x479-x480);
+xdot(481) =g_CMP*5*(x480-x481);
+xdot(482) =g_CMP*5*(x481-x482);
+xdot(483) =g_CMP*5*(x482-x483);
+
+%GMP
+xdot(484) =a_CMP_GMP*5*x382-(b_GMP*5+a_GMP_mat*5+g_GMP*5)*x484;
+xdot(485) =+b_GMP*5*(x484-x485);
+xdot(486) =+b_GMP*5*(x485-x486);
+xdot(487) =+b_GMP*5*(x486-x487);
+xdot(488) =+b_GMP*5*(x487-x488);
+xdot(489) =+b_GMP*5*(x488-x489);
+xdot(490) =a_GMP_mat*5*(x484-x490);
+xdot(491) =a_GMP_mat*5*(x490-x491);
+xdot(492) =a_GMP_mat*5*(x491-x492);
+xdot(493) =a_GMP_mat*5*(x492-x493);
+xdot(494) =a_GMP_mat*5*(x493-x494);
+xdot(495) =g_GMP*5*(x484-x495);
+xdot(496) =g_GMP*5*(x495-x496);
+xdot(497) =g_GMP*5*(x496-x497);
+xdot(498) =g_GMP*5*(x497-x498);
+xdot(499) =g_GMP*5*(x498-x499);
+xdot(500) =a_CMP_GMP*5*x398+2*b_GMP*5*x489-(b_GMP*5+a_GMP_mat*5+g_GMP*5)*x500;
+xdot(501) =+b_GMP*5*(x500-x501);
+xdot(502) =+b_GMP*5*(x501-x502);
+xdot(503) =+b_GMP*5*(x502-x503);
+xdot(504) =+b_GMP*5*(x503-x504);
+xdot(505) =+b_GMP*5*(x504-x505);
+xdot(506) =a_GMP_mat*5*(x500-x506);
+xdot(507) =a_GMP_mat*5*(x506-x507);
+xdot(508) =a_GMP_mat*5*(x507-x508);
+xdot(509) =a_GMP_mat*5*(x508-x509);
+xdot(510) =a_GMP_mat*5*(x509-x510);
+xdot(511) =g_GMP*5*(x500-x511);
+xdot(512) =g_GMP*5*(x511-x512);
+xdot(513) =g_GMP*5*(x512-x513);
+xdot(514) =g_GMP*5*(x513-x514);
+xdot(515) =g_GMP*5*(x514-x515);
+xdot(516) =a_CMP_GMP*5*x414+2*b_GMP*5*x505-(b_GMP*5+a_GMP_mat*5+g_GMP*5)*x516;
+xdot(517) =+b_GMP*5*(x516-x517);
+xdot(518) =+b_GMP*5*(x517-x518);
+xdot(519) =+b_GMP*5*(x518-x519);
+xdot(520) =+b_GMP*5*(x519-x520);
+xdot(521) =+b_GMP*5*(x520-x521);
+xdot(522) =a_GMP_mat*5*(x516-x522);
+xdot(523) =a_GMP_mat*5*(x522-x523);
+xdot(524) =a_GMP_mat*5*(x523-x524);
+xdot(525) =a_GMP_mat*5*(x524-x525);
+xdot(526) =a_GMP_mat*5*(x525-x526);
+xdot(527) =g_GMP*5*(x516-x527);
+xdot(528) =g_GMP*5*(x527-x528);
+xdot(529) =g_GMP*5*(x528-x529);
+xdot(530) =g_GMP*5*(x529-x530);
+xdot(531) =g_GMP*5*(x530-x531);
+xdot(532) =a_CMP_GMP*5*x430+2*b_GMP*5*x521-(b_GMP*5+a_GMP_mat*5+g_GMP*5)*x532;
+xdot(533) =+b_GMP*5*(x532-x533);
+xdot(534) =+b_GMP*5*(x533-x534);
+xdot(535) =+b_GMP*5*(x534-x535);
+xdot(536) =+b_GMP*5*(x535-x536);
+xdot(537) =+b_GMP*5*(x536-x537);
+xdot(538) =a_GMP_mat*5*(x532-x538);
+xdot(539) =a_GMP_mat*5*(x538-x539);
+xdot(540) =a_GMP_mat*5*(x539-x540);
+xdot(541) =a_GMP_mat*5*(x540-x541);
+xdot(542) =a_GMP_mat*5*(x541-x542);
+xdot(543) =g_GMP*5*(x532-x543);
+xdot(544) =g_GMP*5*(x543-x544);
+xdot(545) =g_GMP*5*(x544-x545);
+xdot(546) =g_GMP*5*(x545-x546);
+xdot(547) =g_GMP*5*(x546-x547);
+xdot(548) =a_CMP_GMP*5*x446+2*b_GMP*5*x537-(b_GMP*5+a_GMP_mat*5+g_GMP*5)*x548;
+xdot(549) =+b_GMP*5*(x548-x549);
+xdot(550) =+b_GMP*5*(x549-x550);
+xdot(551) =+b_GMP*5*(x550-x551);
+xdot(552) =+b_GMP*5*(x551-x552);
+xdot(553) =+b_GMP*5*(x552-x553);
+xdot(554) =a_GMP_mat*5*(x548-x554);
+xdot(555) =a_GMP_mat*5*(x554-x555);
+xdot(556) =a_GMP_mat*5*(x555-x556);
+xdot(557) =a_GMP_mat*5*(x556-x557);
+xdot(558) =a_GMP_mat*5*(x557-x558);
+xdot(559) =g_GMP*5*(x548-x559);
+xdot(560) =g_GMP*5*(x559-x560);
+xdot(561) =g_GMP*5*(x560-x561);
+xdot(562) =g_GMP*5*(x561-x562);
+xdot(563) =g_GMP*5*(x562-x563);
+xdot(564) =a_CMP_GMP*5*x462+2*b_GMP*5*x553-(b_GMP*5+a_GMP_mat*5+g_GMP*5)*x564;
+xdot(565) =+b_GMP*5*(x564-x565);
+xdot(566) =+b_GMP*5*(x565-x566);
+xdot(567) =+b_GMP*5*(x566-x567);
+xdot(568) =+b_GMP*5*(x567-x568);
+xdot(569) =+b_GMP*5*(x568-x569);
+xdot(570) =a_GMP_mat*5*(x564-x570);
+xdot(571) =a_GMP_mat*5*(x570-x571);
+xdot(572) =a_GMP_mat*5*(x571-x572);
+xdot(573) =a_GMP_mat*5*(x572-x573);
+xdot(574) =a_GMP_mat*5*(x573-x574);
+xdot(575) =g_GMP*5*(x564-x575);
+xdot(576) =g_GMP*5*(x575-x576);
+xdot(577) =g_GMP*5*(x576-x577);
+xdot(578) =g_GMP*5*(x577-x578);
+xdot(579) =g_GMP*5*(x578-x579);
+xdot(580) =a_CMP_GMP*5*x478+2*b_GMP*5*x569+2*b_GMP*5*x585-(b_GMP*5+a_GMP_mat*5+g_GMP*5)*x580;
+xdot(581) =+b_GMP*5*(x580-x581);
+xdot(582) =+b_GMP*5*(x581-x582);
+xdot(583) =+b_GMP*5*(x582-x583);
+xdot(584) =+b_GMP*5*(x583-x584);
+xdot(585) =+b_GMP*5*(x584-x585);
+xdot(586) =a_GMP_mat*5*(x580-x586);
+xdot(587) =a_GMP_mat*5*(x586-x587);
+xdot(588) =a_GMP_mat*5*(x587-x588);
+xdot(589) =a_GMP_mat*5*(x588-x589);
+xdot(590) =a_GMP_mat*5*(x589-x590);
+xdot(591) =g_GMP*5*(x580-x591);
+xdot(592) =g_GMP*5*(x591-x592);
+xdot(593) =g_GMP*5*(x592-x593);
+xdot(594) =g_GMP*5*(x593-x594);
+xdot(595) =g_GMP*5*(x594-x595);
+
+%MEP
+xdot(596) =a_HSC_MEP*5*x11-(b_MEP*5+a_MEP_mat*5+g_MEP*5)*x596;
+xdot(597) =+b_MEP*5*(x596-x597);
+xdot(598) =+b_MEP*5*(x597-x598);
+xdot(599) =+b_MEP*5*(x598-x599);
+xdot(600) =+b_MEP*5*(x599-x600);
+xdot(601) =+b_MEP*5*(x600-x601);
+xdot(602) =a_MEP_mat*5*(x596-x602);
+xdot(603) =a_MEP_mat*5*(x602-x603);
+xdot(604) =a_MEP_mat*5*(x603-x604);
+xdot(605) =a_MEP_mat*5*(x604-x605);
+xdot(606) =a_MEP_mat*5*(x605-x606);
+xdot(607) =g_MEP*5*(x596-x607);
+xdot(608) =g_MEP*5*(x607-x608);
+xdot(609) =g_MEP*5*(x608-x609);
+xdot(610) =g_MEP*5*(x609-x610);
+xdot(611) =g_MEP*5*(x610-x611);
+xdot(612) =a_HSC_MEP*5*x32+2*b_MEP*5*x601-(b_MEP*5+a_MEP_mat*5+g_MEP*5)*x612;
+xdot(613) =+b_MEP*5*(x612-x613);
+xdot(614) =+b_MEP*5*(x613-x614);
+xdot(615) =+b_MEP*5*(x614-x615);
+xdot(616) =+b_MEP*5*(x615-x616);
+xdot(617) =+b_MEP*5*(x616-x617);
+xdot(618) =a_MEP_mat*5*(x612-x618);
+xdot(619) =a_MEP_mat*5*(x618-x619);
+xdot(620) =a_MEP_mat*5*(x619-x620);
+xdot(621) =a_MEP_mat*5*(x620-x621);
+xdot(622) =a_MEP_mat*5*(x621-x622);
+xdot(623) =g_MEP*5*(x612-x623);
+xdot(624) =g_MEP*5*(x623-x624);
+xdot(625) =g_MEP*5*(x624-x625);
+xdot(626) =g_MEP*5*(x625-x626);
+xdot(627) =g_MEP*5*(x626-x627);
+xdot(628) =a_HSC_MEP*5*x53+2*b_MEP*5*x617-(b_MEP*5+a_MEP_mat*5+g_MEP*5)*x628;
+xdot(629) =+b_MEP*5*(x628-x629);
+xdot(630) =+b_MEP*5*(x629-x630);
+xdot(631) =+b_MEP*5*(x630-x631);
+xdot(632) =+b_MEP*5*(x631-x632);
+xdot(633) =+b_MEP*5*(x632-x633);
+xdot(634) =a_MEP_mat*5*(x628-x634);
+xdot(635) =a_MEP_mat*5*(x634-x635);
+xdot(636) =a_MEP_mat*5*(x635-x636);
+xdot(637) =a_MEP_mat*5*(x636-x637);
+xdot(638) =a_MEP_mat*5*(x637-x638);
+xdot(639) =g_MEP*5*(x628-x639);
+xdot(640) =g_MEP*5*(x639-x640);
+xdot(641) =g_MEP*5*(x640-x641);
+xdot(642) =g_MEP*5*(x641-x642);
+xdot(643) =g_MEP*5*(x642-x643);
+xdot(644) =a_HSC_MEP*5*x74+2*b_MEP*5*x633-(b_MEP*5+a_MEP_mat*5+g_MEP*5)*x644;
+xdot(645) =+b_MEP*5*(x644-x645);
+xdot(646) =+b_MEP*5*(x645-x646);
+xdot(647) =+b_MEP*5*(x646-x647);
+xdot(648) =+b_MEP*5*(x647-x648);
+xdot(649) =+b_MEP*5*(x648-x649);
+xdot(650) =a_MEP_mat*5*(x644-x650);
+xdot(651) =a_MEP_mat*5*(x650-x651);
+xdot(652) =a_MEP_mat*5*(x651-x652);
+xdot(653) =a_MEP_mat*5*(x652-x653);
+xdot(654) =a_MEP_mat*5*(x653-x654);
+xdot(655) =g_MEP*5*(x644-x655);
+xdot(656) =g_MEP*5*(x655-x656);
+xdot(657) =g_MEP*5*(x656-x657);
+xdot(658) =g_MEP*5*(x657-x658);
+xdot(659) =g_MEP*5*(x658-x659);
+xdot(660) =a_HSC_MEP*5*x95+2*b_MEP*5*x649-(b_MEP*5+a_MEP_mat*5+g_MEP*5)*x660;
+xdot(661) =+b_MEP*5*(x660-x661);
+xdot(662) =+b_MEP*5*(x661-x662);
+xdot(663) =+b_MEP*5*(x662-x663);
+xdot(664) =+b_MEP*5*(x663-x664);
+xdot(665) =+b_MEP*5*(x664-x665);
+xdot(666) =a_MEP_mat*5*(x660-x666);
+xdot(667) =a_MEP_mat*5*(x666-x667);
+xdot(668) =a_MEP_mat*5*(x667-x668);
+xdot(669) =a_MEP_mat*5*(x668-x669);
+xdot(670) =a_MEP_mat*5*(x669-x670);
+xdot(671) =g_MEP*5*(x660-x671);
+xdot(672) =g_MEP*5*(x671-x672);
+xdot(673) =g_MEP*5*(x672-x673);
+xdot(674) =g_MEP*5*(x673-x674);
+xdot(675) =g_MEP*5*(x674-x675);
+xdot(676) =a_HSC_MEP*5*x116+2*b_MEP*5*x665-(b_MEP*5+a_MEP_mat*5+g_MEP*5)*x676;
+xdot(677) =+b_MEP*5*(x676-x677);
+xdot(678) =+b_MEP*5*(x677-x678);
+xdot(679) =+b_MEP*5*(x678-x679);
+xdot(680) =+b_MEP*5*(x679-x680);
+xdot(681) =+b_MEP*5*(x680-x681);
+xdot(682) =a_MEP_mat*5*(x676-x682);
+xdot(683) =a_MEP_mat*5*(x682-x683);
+xdot(684) =a_MEP_mat*5*(x683-x684);
+xdot(685) =a_MEP_mat*5*(x684-x685);
+xdot(686) =a_MEP_mat*5*(x685-x686);
+xdot(687) =g_MEP*5*(x676-x687);
+xdot(688) =g_MEP*5*(x687-x688);
+xdot(689) =g_MEP*5*(x688-x689);
+xdot(690) =g_MEP*5*(x689-x690);
+xdot(691) =g_MEP*5*(x690-x691);
+xdot(692) =a_HSC_MEP*5*x137+2*b_MEP*5*x681+2*b_MEP*5*x697-(b_MEP*5+a_MEP_mat*5+g_MEP*5)*x692;
+xdot(693) =+b_MEP*5*(x692-x693);
+xdot(694) =+b_MEP*5*(x693-x694);
+xdot(695) =+b_MEP*5*(x694-x695);
+xdot(696) =+b_MEP*5*(x695-x696);
+xdot(697) =+b_MEP*5*(x696-x697);
+xdot(698) =a_MEP_mat*5*(x692-x698);
+xdot(699) =a_MEP_mat*5*(x698-x699);
+xdot(700) =a_MEP_mat*5*(x699-x700);
+xdot(701) =a_MEP_mat*5*(x700-x701);
+xdot(702) =a_MEP_mat*5*(x701-x702);
+xdot(703) =g_MEP*5*(x692-x703);
+xdot(704) =g_MEP*5*(x703-x704);
+xdot(705) =g_MEP*5*(x704-x705);
+xdot(706) =g_MEP*5*(x705-x706);
+xdot(707) =g_MEP*5*(x706-x707);
+
+%mat
+xdot(708) =a_MEP_mat*5*x606+a_GMP_mat*5*x494-(b_mat*5+g_mat*5)*x708;
+xdot(709) =+b_mat*5*(x708-x709);
+xdot(710) =+b_mat*5*(x709-x710);
+xdot(711) =+b_mat*5*(x710-x711);
+xdot(712) =+b_mat*5*(x711-x712);
+xdot(713) =+b_mat*5*(x712-x713);
+xdot(714) =g_mat*5*(x708-x714);
+xdot(715) =g_mat*5*(x714-x715);
+xdot(716) =g_mat*5*(x715-x716);
+xdot(717) =g_mat*5*(x716-x717);
+xdot(718) =g_mat*5*(x717-x718);
+xdot(719) =a_MEP_mat*5*x622+a_GMP_mat*5*x510+2*b_mat*5*x713-(b_mat*5+g_mat*5)*x719;
+xdot(720) =+b_mat*5*(x719-x720);
+xdot(721) =+b_mat*5*(x720-x721);
+xdot(722) =+b_mat*5*(x721-x722);
+xdot(723) =+b_mat*5*(x722-x723);
+xdot(724) =+b_mat*5*(x723-x724);
+xdot(725) =g_mat*5*(x719-x725);
+xdot(726) =g_mat*5*(x725-x726);
+xdot(727) =g_mat*5*(x726-x727);
+xdot(728) =g_mat*5*(x727-x728);
+xdot(729) =g_mat*5*(x728-x729);
+xdot(730) =a_MEP_mat*5*x638+a_GMP_mat*5*x526+2*b_mat*5*x724-(b_mat*5+g_mat*5)*x730;
+xdot(731) =+b_mat*5*(x730-x731);
+xdot(732) =+b_mat*5*(x731-x732);
+xdot(733) =+b_mat*5*(x732-x733);
+xdot(734) =+b_mat*5*(x733-x734);
+xdot(735) =+b_mat*5*(x734-x735);
+xdot(736) =g_mat*5*(x730-x736);
+xdot(737) =g_mat*5*(x736-x737);
+xdot(738) =g_mat*5*(x737-x738);
+xdot(739) =g_mat*5*(x738-x739);
+xdot(740) =g_mat*5*(x739-x740);
+xdot(741) =a_MEP_mat*5*x654+a_GMP_mat*5*x542+2*b_mat*5*x735-(b_mat*5+g_mat*5)*x741;
+xdot(742) =+b_mat*5*(x741-x742);
+xdot(743) =+b_mat*5*(x742-x743);
+xdot(744) =+b_mat*5*(x743-x744);
+xdot(745) =+b_mat*5*(x744-x745);
+xdot(746) =+b_mat*5*(x745-x746);
+xdot(747) =g_mat*5*(x741-x747);
+xdot(748) =g_mat*5*(x747-x748);
+xdot(749) =g_mat*5*(x748-x749);
+xdot(750) =g_mat*5*(x749-x750);
+xdot(751) =g_mat*5*(x750-x751);
+xdot(752) =a_MEP_mat*5*x670+a_GMP_mat*5*x558+2*b_mat*5*x746-(b_mat*5+g_mat*5)*x752;
+xdot(753) =+b_mat*5*(x752-x753);
+xdot(754) =+b_mat*5*(x753-x754);
+xdot(755) =+b_mat*5*(x754-x755);
+xdot(756) =+b_mat*5*(x755-x756);
+xdot(757) =+b_mat*5*(x756-x757);
+xdot(758) =g_mat*5*(x752-x758);
+xdot(759) =g_mat*5*(x758-x759);
+xdot(760) =g_mat*5*(x759-x760);
+xdot(761) =g_mat*5*(x760-x761);
+xdot(762) =g_mat*5*(x761-x762);
+xdot(763) =a_MEP_mat*5*x686+a_GMP_mat*5*x574+2*b_mat*5*x757-(b_mat*5+g_mat*5)*x763;
+xdot(764) =+b_mat*5*(x763-x764);
+xdot(765) =+b_mat*5*(x764-x765);
+xdot(766) =+b_mat*5*(x765-x766);
+xdot(767) =+b_mat*5*(x766-x767);
+xdot(768) =+b_mat*5*(x767-x768);
+xdot(769) =g_mat*5*(x763-x769);
+xdot(770) =g_mat*5*(x769-x770);
+xdot(771) =g_mat*5*(x770-x771);
+xdot(772) =g_mat*5*(x771-x772);
+xdot(773) =g_mat*5*(x772-x773);
+xdot(774) =a_MEP_mat*5*x702+a_GMP_mat*5*x590+2*b_mat*5*x768+2*b_mat*5*x779-(b_mat*5+g_mat*5)*x774;
+xdot(775) =+b_mat*5*(x774-x775);
+xdot(776) =+b_mat*5*(x775-x776);
+xdot(777) =+b_mat*5*(x776-x777);
+xdot(778) =+b_mat*5*(x777-x778);
+xdot(779) =+b_mat*5*(x778-x779);
+xdot(780) =g_mat*5*(x774-x780);
+xdot(781) =g_mat*5*(x780-x781);
+xdot(782) =g_mat*5*(x781-x782);
+xdot(783) =g_mat*5*(x782-x783);
+xdot(784) =g_mat*5*(x783-x784);
+
+%D
+
+
+
+% INITIAL CONDITIONS
+x0 = sym(zeros(size(x)));
+x0([1,148,295,372,484,596,708])=exp(p(1:7))-1;
+
+% OBSERVABLES
+y= sym(zeros(49,1));
+for i=1:7
+y(0+i) = log(sum(x((i-1)*21+1:i*21+1-1))+1);
+end
+for i=1:7
+y(7+i) = log(sum(x((i-1)*21+148:i*21+148-1))+1);
+end
+for i=1:7
+y(14+i) = log(sum(x((i-1)*11+295:i*11+295-1))+1);
+end
+for i=1:7
+y(21+i) = log(sum(x((i-1)*16+372:i*16+372-1))+1);
+end
+for i=1:7
+y(28+i) = log(sum(x((i-1)*16+484:i*16+484-1))+1);
+end
+for i=1:7
+y(35+i) = log(sum(x((i-1)*16+596:i*16+596-1))+1);
+end
+for i=1:7
+y(42+i) = log(sum(x((i-1)*11+708:i*11+708-1))+1);
+end
+
+
+% SYSTEM STRUCT
+model.sym.x = x;
+model.sym.k = k;
+model.sym.xdot = xdot;
+model.sym.p = p;
+model.sym.x0 = x0;
+model.sym.y = y;
+model.sym.sigma_y = 0;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
