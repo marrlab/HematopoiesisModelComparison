@@ -7,6 +7,7 @@ opt.model_sim = model_str{j_sim};
 %create simulation file for current model & generate in
 %silico data
 [theta_test,n_states,opt] = getModelParams(opt,opt.model_sim);
+opt.pscale_sim = opt.amiOptions.pscale;
 rate_names_test = strtrim(opt.rates(~strwcmp(opt.rates,'x0_*')));
 createSimulationFiles(opt,true,opt.model_sim)
 

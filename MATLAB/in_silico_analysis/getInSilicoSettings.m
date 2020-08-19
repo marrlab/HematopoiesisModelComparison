@@ -42,7 +42,7 @@ opt.applyParConstraints = false;
 opt.noiseType = 'LogNormal'; %--> most appropriate
 
 %profile likelihood and confidence intervals
-opt.PLcalculation = false;%true; %calculation of profile likelihoods
+opt.PLcalculation = false;% %calculation of profile likelihoods
 opt.CI_levels = [0.9,0.95,0.99]; %levels for PL-confidence intervals
 
 opt.optimizationMode = 'hierarchical';%'standard';%
@@ -55,9 +55,9 @@ j_end = length(model_str); %last index for model schemes
 opt.model_sim = opt.models_implemented{1}; %only initialization, updated later
 opt.t = [1,2,3,5,7]*24;%times at which in silico data should be observed in hours
 opt.applyNoise = true;
-opt.noiseLevel = {'strong','middle','weak'};%,'realistic'};
+opt.noiseLevel = {'strong','middle','weak','realistic'};
 nl_end=length(opt.noiseLevel);
-opt.n_individuals=1;
+opt.n_individuals=5;
 opt.n_replicates=1; %determine nr of samples
 opt.n_repetitions=1;%determine nr of repititions (different initial conditions, but same rates)
 opt.individuals = cellstr(num2str([1:opt.n_individuals]'));

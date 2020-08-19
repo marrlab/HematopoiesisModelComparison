@@ -113,12 +113,16 @@ function [] = saveModelFitResults(theta_test,theta_opt,data,opt,n_y,sigma_HO)
             if opt.fit_repetitions_seperately
                 [sol_opt] = simH([],t,[theta_opt(1:n_y);theta_opt(n_y+1:end)]',opt.model,opt,false,[],[]);
                 if opt.realdata==false
+                    %% update opt.amiOptions.pscale
+                    opt.amiOptions.pscale = opt.pscale_sim;
 %                         [sol_test_points] = simH([],D.t,[theta_test(1:n_y),theta_test(n_y+1:end)],opt.model_sim,opt,false,[],[]);
                     [sol_test] = simH([],t,[theta_test(1:n_y),theta_test(n_y+1:end)],opt.model_sim,opt,false,[],[]);
                 end
             else
                 [sol_opt] = simH([],t,[theta_opt(1+n_y*(i_repe-1):i_repe*n_y);theta_opt(opt.n_initialConds_N*n_y+1:end)]',opt.model,opt,false,[],[]);
                 if opt.realdata==false
+                    %% update opt.amiOptions.pscale
+                    opt.amiOptions.pscale = opt.pscale_sim;
 %                         [sol_test_points] = simH([],D.t,[theta_test(1+n_y*(i_repe-1):i_repe*n_y),theta_test(opt.n_initialConds_N*n_y+1:end)],opt.model_sim,opt,false,[],[]);
                     [sol_test] = simH([],t,[theta_test(1+n_y*(i_repe-1):i_repe*n_y),theta_test(opt.n_initialConds_N*n_y+1:end)],opt.model_sim,opt,false,[],[]);
                 end
@@ -126,6 +130,8 @@ function [] = saveModelFitResults(theta_test,theta_opt,data,opt,n_y,sigma_HO)
         else 
             [sol_opt] = simH(D.Y0,t,theta_opt',opt.model,opt,false,[],[]);
             if opt.realdata==false
+                %% update opt.amiOptions.pscale
+                opt.amiOptions.pscale = opt.pscale_sim;
 %                     [sol_test_points] = simH(D.Y0,D.t,theta_test(:),opt.model_sim,opt,false,[],[]);
                 [sol_test] = simH(D.Y0,t,theta_test,opt.model_sim,opt,false,[],[]);
             end
