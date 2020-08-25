@@ -33,7 +33,9 @@
             if opt.realdata == true
                 [data] = getExperimentalData(individual_ID,opt);
             else
-                load(['insilico_data_',opt.model_sim,'_',opt.noiseType,'_',opt.nL,'_individual_',ListOfIndividuals{individual_ID},'_topology_BIC.mat'],'data');
+                cd(opt.foldername)
+                load(['insilico_data_',opt.model_sim,'_',opt.noiseType,'_',opt.nL,'_individual_',ListOfIndividuals{individual_ID},'.mat'],'data');
+                cd('../')
             end
             if opt.n_divStates>1
                 yd = data.NumCellDiv_ALL;

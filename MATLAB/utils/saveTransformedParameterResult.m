@@ -9,7 +9,7 @@ function [par_min,par_max,CI_lower,CI_upper,PAR_OPT_T,PAR_TEST_T,logL_vec] = sav
         end
     end
     cd(['./',opt.foldername,'/',opt.subfoldername,'/',opt.subsubfoldername]);
-    save('ws_parameters_.mat','par_min','par_max','CI_lower','CI_upper','PAR_OPT_T','PAR_TEST_T','rate_names_opt','rate_names_test','transformation_str','individuals_str');
+    save('ws_parameters.mat','par_min','par_max','CI_lower','CI_upper','PAR_OPT_T','PAR_TEST_T','rate_names_opt','rate_names_test','transformation_str','individuals_str');
     cd(opt.c_path);
 
     function [par_min, par_max, CI_lower, CI_upper, PAR_OPT, PAR_TEST, rate_names_opt] = transformParameterResult(parameters,theta_test,opt,opt_parScalePlot)

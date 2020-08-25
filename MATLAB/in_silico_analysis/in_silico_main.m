@@ -20,16 +20,16 @@ clear;
 clc;
 close all;
 
-firstIndividual=1; %specify first individual
+firstIndividual=2; %specify first individual
 
 %% get specified settings:
 [opt,model_str,j_end,j_sim_end,nl_end] = getInSilicoSettings();
              
-for j_sim = 1:j_sim_end %model scheme used for simulations index
+for j_sim = 2:j_sim_end %model scheme used for simulations index
     %% generate in silico data for every specified noise level and individual
     opt = simulateData(j_sim,model_str,opt);
     for nl_id = 1:nl_end
-        for j=1:j_end %index of model hierarchy used for fit
+        for j=3:j_end %index of model hierarchy used for fit
             %% update options:
             [opt,n_states] = updateInSilicoSettings(model_str,j,nl_id,opt);
             
