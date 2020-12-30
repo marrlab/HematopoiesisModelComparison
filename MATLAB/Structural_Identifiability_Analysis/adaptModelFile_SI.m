@@ -46,7 +46,7 @@ cd(CD);
         T_new(2) = {strcat('%',model)};
         T_new(3) = {'% Lisa Bast '};
         T_new(4) = {' '};
-        T_new(5) = {'clearvars -except i model_str opt;'};
+        T_new(5) = {'clearvars -except i model_str opt current_dir;'};
         T_new(6) = {' '};
         T_new(7) = {'%% states '};
 
@@ -255,7 +255,7 @@ cd(CD);
         T_new(2) = {strcat('%',model)};
         T_new(3) = {'% Lisa Bast '};
         T_new(4) = {' '};
-        T_new(5) = {'clearvars -except i model_str opt;'};
+        T_new(5) = {'clearvars -except i model_str opt current_dir;'};
         T_new(6) = {' '};
         T_new(7) = {'%% states '};
 

@@ -18,7 +18,8 @@ clearvars -except i model_str opt;
 for i = 1:length(model_str)
     %% 2. Modify file options.m
     % make sure 'modelname = 'hematopoiesis_model_X';' is the specified option.
-    current_dir = adaptOptionsFile(model_str{i},opt);
+    current_dir = cd();
+    adaptOptionsFile(model_str{i},opt);
     %% 3. run sim file
     eval(['z_create_hematopoiesis_',model_str{i}]);
     %% 4. run structural identifiability analysis STRIKE_GOLDD.m
@@ -29,13 +30,13 @@ end
 
 function [opt,model_str] = getSISettings()
     opt = setPaths();
-    
-    model_str={'model_A','model_B','model_C','model_D','model_E','model_F','model_G','model_H','model_I','model_J'};
+    opt.modelStates = {'HSC','MPP','MLP','CMP','GMP','MEP','mat'};
+    model_str={'model_J'};%'model_A','model_B','model_C','model_D','model_E','model_F','model_G','model_H','model_I',
     opt.models_implemented = {'model_A','model_B','model_C','model_D','model_E','model_F','model_G','model_H','model_I','model_J'};
-    opt.n_intermediateStates = 3;
-    opt.iS_ID = find(opt.n_intermediateStates==3); %model with 3 intermediate states
+    opt.n_intermediateStates = 3;%1;%
+    opt.iS_ID = 1;
     % for fitting number of divisions:
-    opt.n_divStates = 7;
+    opt.n_divStates = 1;%7;
     if opt.n_divStates>1
         opt.modelAccumulateInLastState = true;
     else
@@ -55,7 +56,7 @@ function [opt,model_str] = getSISettings()
         opt.c_path = cd;
         cd('../');
         path1=cd;
-        addpath(genpath(fullfile(path1,'functions')));
+        addpath(genpath(fullfile(path1,'utils')));
         addpath(genpath(fullfile(path1,'toolboxes')));
         addpath(genpath(fullfile(path1,'toolboxes','AMICI-master')));
         opt.a_path = fullfile(path1,'toolboxes','AMICI-master','matlab','examples');
@@ -66,7 +67,6 @@ function [opt,model_str] = getSISettings()
 end
 
 function [CD] = adaptOptionsFile(m_str,opt)
-    CD = cd();
     cd(opt.structIdent_path);
     cd('../')
     FileName = 'options.m';
