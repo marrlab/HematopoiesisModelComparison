@@ -3,15 +3,15 @@
 
 contains code and data accompanying
 
-____Computational modeling of stem and progenitor cell kinetics to identify plausible hematopoietic lineage hierarchies____
+____Computational modeling of stem and progenitor cell kinetics identifies plausible hematopoietic lineage hierarchies____
 
 Lisa Bast<sup>1,2,3,\*</sup>, Michèle C. Buck<sup>4,\*</sup>, Judith S. Hecker<sup>4</sup>, Robert A.J. Oostendorp<sup>4</sup>, Katharina S. Götze<sup>4,6,+</sup> and Carsten Marr<sup>1,2,+</sup>
 
 <sub><sup>
-<sup>1</sup>Institute of Computational Biology, Helmholtz Zentrum München–German Research Center for Environmental Health, Neuherberg, Germany. <br>
-<sup>2</sup>Department of Mathematics, Chair of Mathematical Modeling of Biological Systems, Technische Universität München, Garching, Germany. <br>
-<sup>3</sup>Laboratory of Molecular Neurobiology, Department of Medical Biochemistry and Biophysics, Karolinska Institutet, Stockholm, Sweden.<br>
-<sup>4</sup>Department of Medicine III, Technical University of Munich, Klinikum rechts der Isar, Munich, Germany. <br>
+<sup>1</sup>Helmholtz Zentrum München–German Research Center for Environmental Health, Institute of Computational Biology, Neuherberg, Germany. <br>
+<sup>2</sup>Technical University of Munich, Department of Mathematics, Chair of Mathematical Modeling of Biological Systems, Garching, Germany. <br>
+<sup>3</sup>Laboratory of Molecular Neurobiology, Department of Medical Biochemistry and Biophysics, Karolinska Institutet, Stockholm, Sweden. <br>
+<sup>4</sup>Technical University of Munich, School of Medicine, Klinikum rechts der Isar, Department of Internal Medicine III, Munich, Germany. <br>
 <sup>5</sup>Institute of Microbiology, Technische Universität München, Munich, Germany. <br>
 <sup>6</sup>German Cancer Consortium (DKTK), Heidelberg, Partner Site Munich.<br>
 <sup>\*</sup> Equal contribution  <br>
