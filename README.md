@@ -18,6 +18,8 @@ Lisa Bast<sup>1,2,3,\*</sup>, Michèle C. Buck<sup>4,\*</sup>, Judith S. Hecker<
 <sup>+</sup> Joint corresponding authors  <br>
 </sup></sub>
 
+which can be accessed via https://www.cell.com/iscience/fulltext/S2589-0042(21)00088-2
+
 required software: 
 - MATLAB R2017a
 - Python 3.7.6
